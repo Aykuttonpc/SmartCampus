@@ -48,10 +48,11 @@ public class ReservationDal(AppDbContext db)
         }
     }
 
-    public async Task CancelAsync(long reservationId)
+    public async Task CancelAsync(long reservationId, int? userId)
     {
         var cancelledId = await db.Statuses.Where(s => s.StatusName == "Cancelled").Select(s => s.StatusID).FirstAsync();
-        await db.Reservations.Where(r => r.ReservationID == reservationId)
+        await db.Reservations
+            .Where(r => r.ReservationID == reservationId && (userId == null || r.OrganizerUserID == userId))
             .ExecuteUpdateAsync(s => s.SetProperty(r => r.StatusID, cancelledId).SetProperty(r => r.CancelledAt, DateTime.Now));
     }
 
@@ -61,6 +62,9 @@ public class ReservationDal(AppDbContext db)
         await db.Reservations.Where(r => r.ReservationID == reservationId)
             .ExecuteUpdateAsync(s => s.SetProperty(r => r.StatusID, approvedId));
     }
+
+    public async Task<string?> GetFacilityNameAsync(int id) =>
+        await db.Facilities.Where(f => f.FacilityID == id).Select(f => f.FacilityName).FirstOrDefaultAsync();
 
     public async Task<UserDashboardVm> GetUserDashboardAsync(int userId)
     {

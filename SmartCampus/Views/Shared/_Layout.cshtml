@@ -20,10 +20,15 @@
         {
             <li><a asp-controller="Account" asp-action="Profile">👤 Profilim</a></li>
         }
-        @if ((Context.Session.GetString("Roles") ?? "").Contains("Admin"))
-        {
-            <li><a asp-controller="Admin" asp-action="Index">⚙️ Admin</a></li>
-            <li><a asp-controller="Admin" asp-action="Facilities">🏢 Mekanlar</a></li>
+        @{
+            var roles = Context.Session.GetString("Roles") ?? "";
+            if (roles.Contains("Admin"))
+            {
+                <li class="nav-title">ADMiN</li>
+                <li><a href="/Admin" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">📊 No-Show</a></li>
+                <li><a href="/Admin/Facilities" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Facilities" ? "active" : "")">🏫 Mekanlar</a></li>
+                <li><a href="/Admin/Users" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Users" ? "active" : "")">👥 Kullanıcılar</a></li>
+            }
         }
     </ul>
     <div class="sidebar-footer">

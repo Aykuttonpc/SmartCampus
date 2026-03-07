@@ -8,6 +8,19 @@ public class AccountController(AuthService auth, ReservationService res, Occupan
     // GET /Account/Login
     public IActionResult Login() => View();
 
+    // GET /Account/Register
+    public IActionResult Register() => View();
+
+    // POST /Account/Register
+    [HttpPost]
+    public async Task<IActionResult> Register(string firstName, string lastName, string email, string password, string confirmPassword)
+    {
+        if (password != confirmPassword) { ViewBag.Error = "Şifreler eşleşmiyor."; return View(); }
+        var (ok, error) = await auth.RegisterAsync(firstName, lastName, email, password);
+        if (!ok) { ViewBag.Error = error; return View(); }
+        return RedirectToAction(nameof(Login));
+    }
+
     // POST /Account/Login
     [HttpPost]
     public async Task<IActionResult> Login(string email, string password)

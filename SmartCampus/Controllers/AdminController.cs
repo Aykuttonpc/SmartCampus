@@ -32,4 +32,25 @@ public class AdminController(AdminService admin) : Controller
         await admin.DeleteFacilityAsync(id);
         return RedirectToAction(nameof(Facilities));
     }
+
+    // GET /Admin/Users
+    public async Task<IActionResult> Users()
+    {
+        if (!IsAdmin()) return RedirectToAction("Login", "Account");
+        var list = await admin.GetAllUsersWithRolesAsync();
+        return View(list);
+    }
+
+    // POST /Admin/ChangeRole
+    [HttpPost]
+    public async Task<IActionResult> ChangeRole(int userId, string newRole)
+    {
+        if (!IsAdmin()) return Forbid();
+        var validRoles = new[] { "Student", "Staff", "Admin" };
+        if (validRoles.Contains(newRole))
+        {
+            await admin.UpdateUserRoleAsync(userId, newRole);
+        }
+        return RedirectToAction(nameof(Users));
+    }
 }

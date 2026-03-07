@@ -46,10 +46,14 @@ else
                         }
                         @if (r.StatusName is "Pending" or "Approved")
                         {
-                            <form asp-action="Cancel" asp-route-id="@r.ReservationID" method="post" style="display:inline"
-                                  onsubmit="return confirm('İptal edilsin mi?')">
-                                <button class="btn btn-danger btn-sm">İptal</button>
-                            </form>
+                            var sessionUid = Context.Session.GetInt32("UserID");
+                            if (isAdminOrStaff || sessionUid == r.OrganizerUserID)
+                            {
+                                <form asp-action="Cancel" asp-route-id="@r.ReservationID" method="post" style="display:inline"
+                                      onsubmit="return confirm('İptal edilsin mi?')">
+                                    <button class="btn btn-danger btn-sm">İptal</button>
+                                </form>
+                            }
                         }
                     </td>
                 </tr>

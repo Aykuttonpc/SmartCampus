@@ -49,6 +49,7 @@
                             <form asp-controller="Reservations" asp-action="Cancel"
                                   asp-route-id="@r.ReservationID" method="post"
                                   onsubmit="return confirm('İptal edilsin mi?')">
+                                <input type="hidden" name="returnUrl" value="/Account/Profile" />
                                 <button class="btn btn-danger btn-sm">İptal</button>
                             </form>
                         </td>

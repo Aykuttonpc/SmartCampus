@@ -1,0 +1,42 @@
+@model List<SmartCampus.Models.UserRoleVm>
+@{ ViewData["Title"] = "Kullanıcı Yönetimi"; }
+
+<div class="page-header">
+    <h1>👥 Kullanıcı Yönetimi</h1>
+</div>
+
+<div class="table-wrap">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th><th>İsim Soyisim</th><th>E-posta</th><th>Mevcut Rol</th><th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.UserID</td>
+                <td>@u.FullName</td>
+                <td>@u.Email</td>
+                <td><span class="status-badge status-id-@(u.RoleName == "Admin" ? 2 : (u.RoleName == "Staff" ? 1 : 4))">@u.RoleName</span></td>
+                <td>
+                    <form asp-action="ChangeRole" method="post" class="inline-form">
+                        <input type="hidden" name="userId" value="@u.UserID" />
+                        <select name="newRole" class="form-select" onchange="this.form.submit()">
+                            @if(u.RoleName == "Student") { <option value="Student" selected>Öğrenci</option> } else { <option value="Student">Öğrenci</option> }
+                            @if(u.RoleName == "Staff") { <option value="Staff" selected>Personel</option> } else { <option value="Staff">Personel</option> }
+                            @if(u.RoleName == "Admin") { <option value="Admin" selected>Yönetici</option> } else { <option value="Admin">Yönetici</option> }
+                        </select>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<style>
+.inline-form { display: inline-block; margin: 0; }
+.form-select { padding: 4px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--card-bg); color: var(--text-base); }
+</style>

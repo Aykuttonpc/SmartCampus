@@ -13,9 +13,10 @@ public class ReservationService(ReservationDal dal)
 
     public async Task<(bool ok, string error)> BookAsync(int facilityId, int userId, DateTime start, DateTime end) => await dal.BookAsync(facilityId, userId, start, end);
 
-    public async Task CancelAsync(long reservationId) => await dal.CancelAsync(reservationId);
+    public async Task CancelAsync(long reservationId, int? userId) => await dal.CancelAsync(reservationId, userId);
 
     public async Task ApproveAsync(long reservationId) => await dal.ApproveAsync(reservationId);
 
     public async Task<UserDashboardVm> GetUserDashboardAsync(int userId) => await dal.GetUserDashboardAsync(userId);
+    public async Task<string?> GetFacilityNameAsync(int id) => await dal.GetFacilityNameAsync(id);
 }

@@ -10,4 +10,5 @@ public class TodayReservationVm
     public DateTime EndTime { get; set; }
     public int DurationMin { get; set; }
     public int AttendeeCount { get; set; }
+    public int OrganizerUserID { get; set; }
 }

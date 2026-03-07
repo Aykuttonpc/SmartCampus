@@ -20,4 +20,8 @@ public class AdminService(AppDbContext db, AdminDal dal)
     }
 
     public async Task DeleteFacilityAsync(int id) => await dal.DeleteFacilityAsync(id);
+
+    public async Task<List<UserRoleVm>> GetAllUsersWithRolesAsync() => await dal.GetAllUsersWithRolesAsync();
+
+    public async Task UpdateUserRoleAsync(int userId, string newRoleName) => await dal.UpdateUserRoleAsync(userId, newRoleName);
 }

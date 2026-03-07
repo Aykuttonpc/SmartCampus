@@ -238,7 +238,8 @@ SELECT
         r.StartTime,
         r.EndTime
     ) AS DurationMin,
-    COUNT(ra.UserID) AS AttendeeCount
+    COUNT(ra.UserID) AS AttendeeCount,
+    r.OrganizerUserID
 FROM
     Reservations r
     JOIN Facilities f ON r.FacilityID = f.FacilityID
@@ -253,7 +254,8 @@ GROUP BY
     u.FullName,
     st.StatusName,
     r.StartTime,
-    r.EndTime;
+    r.EndTime,
+    r.OrganizerUserID;
 GO
 
 /*
@@ -473,2401 +475,2401 @@ VALUES (
         N'Kaan',
         N'Bulut',
         'kaan1@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Sarı',
         'ayşe2@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Erdoğan',
         'hüseyin3@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Arslan',
         'zeynep4@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ozan',
         N'Arslan',
         'ozan5@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ozan',
         N'Kaya',
         'ozan6@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Acar',
         'ahmet7@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Yavuz',
         'hüseyin8@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gamze',
         N'Acar',
         'gamze9@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Yiğit',
         N'Sarı',
         'yiğit10@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Eren',
         N'Kaya',
         'eren11@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mert',
         N'Güler',
         'mert12@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Aslı',
         N'Çelik',
         'aslı13@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Doğan',
         'zeynep14@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Veli',
         N'Tekin',
         'veli15@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Yıldız',
         'barış16@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Can',
         N'Yıldız',
         'can17@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Erdoğan',
         'selin18@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ebru',
         N'Kaya',
         'ebru19@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Sarı',
         'barış20@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mehmet',
         N'Tekin',
         'mehmet21@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Aydın',
         'gizem22@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ece',
         N'Erdoğan',
         'ece23@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Arslan',
         'gizem24@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Kılıç',
         'hüseyin25@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Turan',
         'umut26@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Koray',
         N'Yılmaz',
         'koray27@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Yıldız',
         'kaan28@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Koray',
         N'Acar',
         'koray29@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mehmet',
         N'Yıldız',
         'mehmet30@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Doğan',
         'zeynep31@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Demir',
         'gizem32@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Aksoy',
         'ufuk33@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Eren',
         N'avcı',
         'eren34@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Şahin',
         'tarık35@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ozan',
         N'Aksoy',
         'ozan36@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Öztürk',
         'ahmet37@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Aksoy',
         'ayşe38@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Demir',
         'barış39@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Aydın',
         'kaan40@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'Güler',
         'didem41@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Tekin',
         'ufuk42@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Kaya',
         'zeynep43@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Bulut',
         'selin44@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Savaş',
         N'Kaya',
         'savaş45@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Turan',
         'ufuk46@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Demir',
         'ufuk47@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Buse',
         N'Yavuz',
         'buse48@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Aksoy',
         'ahmet49@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Can',
         N'Doğan',
         'can50@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Çelik',
         'ceren51@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Şahin',
         'hüseyin52@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Özkan',
         'ayşe53@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ozan',
         N'Yalçın',
         'ozan54@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Öztürk',
         'barış55@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Aslı',
         N'Acar',
         'aslı56@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mehmet',
         N'Güler',
         'mehmet57@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Savaş',
         N'Öztürk',
         'savaş58@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Çelik',
         'umut59@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Murat',
         N'Doğan',
         'murat60@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Kaya',
         'zeynep61@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Eren',
         N'Yalçın',
         'eren62@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'avcı',
         'emre63@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'Erdoğan',
         'fatma64@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Güler',
         'ayşe65@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Turan',
         'umut66@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'avcı',
         'ayşe67@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Yiğit',
         N'Acar',
         'yiğit68@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Bulut',
         'ahmet69@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'Öztürk',
         'ali70@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Tekin',
         'selin71@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'Çelik',
         'emre72@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Yalçın',
         'kaan73@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Öztürk',
         'gizem74@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Bulut',
         'ayşe75@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'avcı',
         'didem76@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'Öztürk',
         'didem77@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'Özkan',
         'emre78@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Yılmaz',
         'umut79@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Yıldız',
         'ufuk80@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Eren',
         N'Doğan',
         'eren81@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'avcı',
         'ayşe82@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Kılıç',
         'tarık83@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Savaş',
         N'Arslan',
         'savaş84@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Yıldız',
         'barış85@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Bulut',
         'ayşe86@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gamze',
         N'avcı',
         'gamze87@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Murat',
         N'avcı',
         'murat88@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Turan',
         'selin89@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ozan',
         N'Şahin',
         'ozan90@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'Doğan',
         'ali91@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Özkan',
         'zeynep92@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Yıldız',
         'ahmet93@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Veli',
         N'Özkan',
         'veli94@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Çelik',
         'hüseyin95@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Veli',
         N'Kaya',
         'veli96@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Yalçın',
         'gizem97@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Acar',
         'umut98@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mehmet',
         N'Yıldız',
         'mehmet99@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Burak',
         N'Şimşek',
         'burak100@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Güler',
         'barış101@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Koç',
         'ahmet102@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mert',
         N'Şimşek',
         'mert103@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Koray',
         N'Acar',
         'koray104@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Savaş',
         N'Kaya',
         'savaş105@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Pınar',
         N'Kaya',
         'pınar106@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'Yıldız',
         'fatma107@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ece',
         N'Özkan',
         'ece108@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Yalçın',
         'hüseyin109@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mert',
         N'Sarı',
         'mert110@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Aydın',
         'ayşe111@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'Yıldız',
         'emre112@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Yalçın',
         'umut113@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'İrem',
         N'Yavuz',
         'i̇rem114@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Turan',
         'ayşe115@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'Güler',
         'fatma116@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Yalçın',
         'hüseyin117@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Acar',
         'hüseyin118@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Yıldız',
         'barış119@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Aksoy',
         'ahmet120@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ozan',
         N'Yılmaz',
         'ozan121@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ece',
         N'Öztürk',
         'ece122@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Yiğit',
         N'avcı',
         'yiğit123@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mehmet',
         N'Aksoy',
         'mehmet124@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'avcı',
         'selin125@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Aydın',
         'kaan126@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Yıldız',
         'umut127@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Yiğit',
         N'Aksoy',
         'yiğit128@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Sarı',
         'tarık129@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Savaş',
         N'Sarı',
         'savaş130@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mehmet',
         N'Yıldız',
         'mehmet131@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Doğan',
         'selin132@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Turan',
         'gizem133@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Öztürk',
         'ufuk134@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mehmet',
         N'Yılmaz',
         'mehmet135@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Çelik',
         'tarık136@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mert',
         N'Doğan',
         'mert137@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Can',
         N'Özkan',
         'can138@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Tekin',
         'hüseyin139@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Yavuz',
         'tarık140@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gamze',
         N'Kılıç',
         'gamze141@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'Güler',
         'emre142@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ece',
         N'Sarı',
         'ece143@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Buse',
         N'Aydın',
         'buse144@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Burak',
         N'Doğan',
         'burak145@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'Güler',
         'fatma146@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Çelik',
         'gizem147@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ece',
         N'Kılıç',
         'ece148@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Erdoğan',
         'gizem149@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mehmet',
         N'Kaya',
         'mehmet150@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Yılmaz',
         'ceren151@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Aksoy',
         'umut152@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Aksoy',
         'kaan153@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Demir',
         'gizem154@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Can',
         N'Çelik',
         'can155@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Öztürk',
         'ayşe156@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Aslı',
         N'Erdoğan',
         'aslı157@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Yıldız',
         'barış158@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Murat',
         N'Güler',
         'murat159@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Yılmaz',
         'ufuk160@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'avcı',
         'ali161@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gamze',
         N'Acar',
         'gamze162@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Çelik',
         'ufuk163@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'Kılıç',
         'ali164@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Yılmaz',
         'tarık165@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ozan',
         N'Öztürk',
         'ozan166@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'avcı',
         'ahmet167@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Acar',
         'ufuk168@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Çelik',
         'kaan169@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Buse',
         N'Aksoy',
         'buse170@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Pınar',
         N'Yalçın',
         'pınar171@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gamze',
         N'avcı',
         'gamze172@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'avcı',
         'ali173@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Çelik',
         'ahmet174@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Bulut',
         'kaan175@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Murat',
         N'Sarı',
         'murat176@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Güler',
         'umut177@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Yıldız',
         'umut178@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Demir',
         'gizem179@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'avcı',
         'ceren180@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Aksoy',
         'ceren181@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Savaş',
         N'Güler',
         'savaş182@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Acar',
         'kaan183@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Sarı',
         'ceren184@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ebru',
         N'Tekin',
         'ebru185@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Pınar',
         N'Yavuz',
         'pınar186@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Can',
         N'Öztürk',
         'can187@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Pınar',
         N'Tekin',
         'pınar188@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Yalçın',
         'hüseyin189@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Aksoy',
         'kaan190@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Özkan',
         'gizem191@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mehmet',
         N'Doğan',
         'mehmet192@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mert',
         N'Aksoy',
         'mert193@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'Doğan',
         'ali194@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'İrem',
         N'Kaya',
         'i̇rem195@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Deniz',
         N'Güler',
         'deniz196@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Kaya',
         'barış197@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'İrem',
         N'Turan',
         'i̇rem198@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Pınar',
         N'Bulut',
         'pınar199@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Aydın',
         'ahmet200@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'Doğan',
         'fatma201@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'Acar',
         'ali202@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Sarı',
         'ayşe203@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Aksoy',
         'hüseyin204@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'Şimşek',
         'didem205@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Aydın',
         'kaan206@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'Tekin',
         'emre207@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Aksoy',
         'umut208@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'Yalçın',
         'didem209@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Can',
         N'Tekin',
         'can210@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'avcı',
         'didem211@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'Öztürk',
         'didem212@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Yavuz',
         'ayşe213@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Doğan',
         'selin214@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Buse',
         N'Yavuz',
         'buse215@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Yavuz',
         'ufuk216@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Şahin',
         'zeynep217@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'avcı',
         'ahmet218@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'Öztürk',
         'emre219@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mert',
         N'Sarı',
         'mert220@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Veli',
         N'avcı',
         'veli221@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'Aydın',
         'ali222@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'Kaya',
         'fatma223@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Erdoğan',
         'tarık224@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Aslı',
         N'Tekin',
         'aslı225@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'Tekin',
         'fatma226@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ece',
         N'Erdoğan',
         'ece227@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Yavuz',
         'tarık228@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Sarı',
         'hüseyin229@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Aslı',
         N'Kılıç',
         'aslı230@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Deniz',
         N'Şahin',
         'deniz231@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Bulut',
         'ayşe232@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Aksoy',
         'gizem233@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Özkan',
         'ayşe234@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Tekin',
         'hüseyin235@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Veli',
         N'Yalçın',
         'veli236@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Murat',
         N'Yıldız',
         'murat237@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Burak',
         N'Güler',
         'burak238@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Öztürk',
         'selin239@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mehmet',
         N'Çelik',
         'mehmet240@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Savaş',
         N'Arslan',
         'savaş241@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Kaya',
         'selin242@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Eren',
         N'Şahin',
         'eren243@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'İrem',
         N'Kaya',
         'i̇rem244@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Kaya',
         'ufuk245@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ece',
         N'Yalçın',
         'ece246@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ece',
         N'Kılıç',
         'ece247@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Yılmaz',
         'zeynep248@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Koray',
         N'Demir',
         'koray249@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Buse',
         N'Yıldız',
         'buse250@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Öztürk',
         'ahmet251@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Can',
         N'Yavuz',
         'can252@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'Bulut',
         'ali253@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Eren',
         N'Sarı',
         'eren254@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gamze',
         N'Arslan',
         'gamze255@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'Yılmaz',
         'emre256@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Eren',
         N'Güler',
         'eren257@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Özkan',
         'selin258@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Şahin',
         'ufuk259@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'Bulut',
         'fatma260@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ebru',
         N'Güler',
         'ebru261@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Veli',
         N'Çelik',
         'veli262@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Yavuz',
         'selin263@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Yalçın',
         'ufuk264@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Koray',
         N'Arslan',
         'koray265@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Deniz',
         N'Tekin',
         'deniz266@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Koç',
         'kaan267@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Koç',
         'ayşe268@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Doğan',
         'selin269@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'Erdoğan',
         'fatma270@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Koç',
         'ahmet271@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Yıldız',
         'umut272@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Arslan',
         'kaan273@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Erdoğan',
         'kaan274@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Deniz',
         N'Yıldız',
         'deniz275@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Yılmaz',
         'hüseyin276@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Burak',
         N'Kılıç',
         'burak277@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Çelik',
         'barış278@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'Yavuz',
         'didem279@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Yavuz',
         'ufuk280@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'avcı',
         'fatma281@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Buse',
         N'avcı',
         'buse282@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Koç',
         'barış283@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Buse',
         N'Yavuz',
         'buse284@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Aslı',
         N'Yavuz',
         'aslı285@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ozan',
         N'Yılmaz',
         'ozan286@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Güler',
         'umut287@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'Aydın',
         'ali288@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gamze',
         N'Arslan',
         'gamze289@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Arslan',
         'tarık290@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Veli',
         N'Yalçın',
         'veli291@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Koray',
         N'Erdoğan',
         'koray292@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Şimşek',
         'ufuk293@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Arslan',
         'ayşe294@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Yiğit',
         N'Öztürk',
         'yiğit295@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Kılıç',
         'selin296@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ece',
         N'Şahin',
         'ece297@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Yiğit',
         N'Koç',
         'yiğit298@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Aslı',
         N'Aydın',
         'aslı299@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Koç',
         'kaan300@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Selin',
         N'Erdoğan',
         'selin301@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'Demir',
         'didem302@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Turan',
         'ahmet303@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Deniz',
         N'Doğan',
         'deniz304@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Buse',
         N'Yalçın',
         'buse305@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ozan',
         N'Sarı',
         'ozan306@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Buse',
         N'Öztürk',
         'buse307@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Özkan',
         'ayşe308@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Şimşek',
         'ufuk309@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'Yıldız',
         'didem310@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'Tekin',
         'didem311@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Savaş',
         N'Öztürk',
         'savaş312@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Öztürk',
         'zeynep313@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Pınar',
         N'Kaya',
         'pınar314@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Aksoy',
         'kaan315@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Acar',
         'zeynep316@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Erdoğan',
         'barış317@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Yalçın',
         'ceren318@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Aydın',
         'zeynep319@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gamze',
         N'Kılıç',
         'gamze320@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Koray',
         N'Şimşek',
         'koray321@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Yiğit',
         N'Doğan',
         'yiğit322@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Güler',
         'hüseyin323@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'Aydın',
         'emre324@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Aslı',
         N'Erdoğan',
         'aslı325@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'Kaya',
         'didem326@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'Şimşek',
         'fatma327@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Şimşek',
         'zeynep328@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Acar',
         'ufuk329@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mert',
         N'Yılmaz',
         'mert330@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Burak',
         N'Şimşek',
         'burak331@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Veli',
         N'Özkan',
         'veli332@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mert',
         N'Sarı',
         'mert333@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'Kılıç',
         'emre334@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Yıldız',
         'hüseyin335@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ufuk',
         N'Doğan',
         'ufuk336@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Doğan',
         'ceren337@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Erdoğan',
         'ayşe338@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Can',
         N'Özkan',
         'can339@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Doğan',
         'ayşe340@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Barış',
         N'Yıldız',
         'barış341@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Yalçın',
         'ahmet342@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Şahin',
         'gizem343@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Deniz',
         N'Bulut',
         'deniz344@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'Koç',
         'ali345@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'Kılıç',
         'emre346@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Yavuz',
         'tarık347@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Buse',
         N'Kılıç',
         'buse348@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Şimşek',
         'hüseyin349@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Kılıç',
         'hüseyin350@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Deniz',
         N'Tekin',
         'deniz351@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ece',
         N'Turan',
         'ece352@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Özkan',
         'ceren353@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Şimşek',
         'tarık354@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Savaş',
         N'Yavuz',
         'savaş355@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ebru',
         N'Koç',
         'ebru356@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Can',
         N'Demir',
         'can357@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Bulut',
         'ceren358@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Şimşek',
         'zeynep359@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Can',
         N'Erdoğan',
         'can360@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gamze',
         N'Sarı',
         'gamze361@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Şahin',
         'gizem362@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Öztürk',
         'gizem363@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Didem',
         N'Çelik',
         'didem364@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Yıldız',
         'tarık365@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Burak',
         N'Aksoy',
         'burak366@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Demir',
         'gizem367@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ozan',
         N'Kılıç',
         'ozan368@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Pınar',
         N'Şimşek',
         'pınar369@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Can',
         N'Turan',
         'can370@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ahmet',
         N'Doğan',
         'ahmet371@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Bulut',
         'ceren372@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Tarık',
         N'Acar',
         'tarık373@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Fatma',
         N'Şimşek',
         'fatma374@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Bulut',
         'ceren375@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Emre',
         N'Tekin',
         'emre376@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ece',
         N'Yılmaz',
         'ece377@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Veli',
         N'Öztürk',
         'veli378@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Aslı',
         N'Kaya',
         'aslı379@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Gizem',
         N'Yıldız',
         'gizem380@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ozan',
         N'Şahin',
         'ozan381@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Zeynep',
         N'Acar',
         'zeynep382@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Şimşek',
         'umut383@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Yalçın',
         'ayşe384@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Kaan',
         N'Yalçın',
         'kaan385@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Yiğit',
         N'Yıldız',
         'yiğit386@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Savaş',
         N'Aydın',
         'savaş387@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Umut',
         N'Sarı',
         'umut388@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Murat',
         N'Çelik',
         'murat389@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Deniz',
         N'Aydın',
         'deniz390@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Yıldız',
         'ceren391@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ali',
         N'Şimşek',
         'ali392@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Hüseyin',
         N'Yalçın',
         'hüseyin393@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Koray',
         N'Öztürk',
         'koray394@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ayşe',
         N'Yalçın',
         'ayşe395@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Burak',
         N'Yılmaz',
         'burak396@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mert',
         N'Aydın',
         'mert397@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Savaş',
         N'Kılıç',
         'savaş398@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Ceren',
         N'Kaya',
         'ceren399@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     ),
     (
         N'Mehmet',
         N'Şimşek',
         'mehmet400@uni.edu',
-        'hash'
+        '$2a$11$X4KkljUL4yRrD1wxG8hxTeB9yBFoPhhElqMUTsfacZCcwGi5E7HNu'
     );
 
 INSERT INTO
