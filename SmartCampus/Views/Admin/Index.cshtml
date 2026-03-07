@@ -1,0 +1,42 @@
+@model List<SmartCampus.Models.NoShowReportVm>
+@{ ViewData["Title"] = "Admin Panel"; }
+
+<div class="page-header">
+    <h1>⚙️ Admin – No-Show Raporu</h1>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="empty-state">Yeterli veri yok (en az 3 rezervasyon gerekli).</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Kullanıcı</th><th>Toplam</th><th>Katıldı</th>
+                    <th>Gelmedi</th><th>No-Show %</th><th>Risk</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.FullName</td>
+                    <td>@r.TotalBookings</td>
+                    <td>@r.AttendedCount</td>
+                    <td>@r.MissedCount</td>
+                    <td>%@r.NoShowRate</td>
+                    <td>
+                        <span class="risk-badge risk-@r.RiskLabel.ToLower().Replace(" ", "-")">
+                            @r.RiskLabel
+                        </span>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+<a asp-action="Facilities" class="btn btn-secondary" style="margin-top:1rem">🏢 Mekan Yönetimi</a>

@@ -1,0 +1,60 @@
+@model List<SmartCampus.Models.TodayReservationVm>
+@{ ViewData["Title"] = "Bugünün Takvimi"; }
+
+<div class="page-header">
+    <h1>📅 Bugünün Rezervasyonları</h1>
+    <span class="updated-at">@DateTime.Today.ToString("d MMMM yyyy", new System.Globalization.CultureInfo("tr-TR"))</span>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="empty-state">Bugün için henüz rezervasyon yok.</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>#</th><th>Mekan</th><th>Organizatör</th>
+                    <th>Başlangıç</th><th>Bitiş</th><th>Süre</th>
+                    <th>Katılımcı</th><th>Durum</th><th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.ReservationID</td>
+                    <td>@r.FacilityName</td>
+                    <td>@r.Organizer</td>
+                    <td>@r.StartTime.ToString("HH:mm")</td>
+                    <td>@r.EndTime.ToString("HH:mm")</td>
+                    <td>@r.DurationMin dk</td>
+                    <td>@r.AttendeeCount kişi</td>
+                    <td><span class="status-badge status-@r.StatusName.ToLower()">@r.StatusName</span></td>
+                    <td>
+                        @{
+                            var roles = Context.Session.GetString("Roles") ?? "";
+                            bool isAdminOrStaff = roles.Contains("Admin") || roles.Contains("Staff");
+                        }
+                        @if (r.StatusName == "Pending" && isAdminOrStaff)
+                        {
+                            <form asp-action="Approve" asp-route-id="@r.ReservationID" method="post" style="display:inline">
+                                <button class="btn btn-primary btn-sm">Onayla</button>
+                            </form>
+                        }
+                        @if (r.StatusName is "Pending" or "Approved")
+                        {
+                            <form asp-action="Cancel" asp-route-id="@r.ReservationID" method="post" style="display:inline"
+                                  onsubmit="return confirm('İptal edilsin mi?')">
+                                <button class="btn btn-danger btn-sm">İptal</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

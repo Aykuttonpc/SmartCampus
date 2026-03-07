@@ -1,0 +1,37 @@
+@model List<SmartCampus.Models.Facility>
+@{ ViewData["Title"] = "Mekan Yönetimi"; }
+
+<div class="page-header">
+    <h1>🏢 Mekan Yönetimi</h1>
+</div>
+
+<div class="table-wrap">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th><th>Mekan Adı</th><th>Bölge</th><th>Tür</th>
+                <th>Kapasite</th><th>Rezerve</th><th>Operasyonel</th><th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td>@f.FacilityID</td>
+                <td>@f.FacilityName</td>
+                <td>@f.Zone?.ZoneName</td>
+                <td>@f.FacilityType?.TypeName</td>
+                <td>@f.MaxCapacity</td>
+                <td>@(f.IsReservable ? "✅" : "➖")</td>
+                <td>@(f.IsOperational ? "✅" : "❌")</td>
+                <td>
+                    <form asp-action="DeleteFacility" asp-route-id="@f.FacilityID" method="post"
+                          onsubmit="return confirm('@f.FacilityName silinsin mi?')">
+                        <button class="btn btn-danger btn-sm">Sil</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

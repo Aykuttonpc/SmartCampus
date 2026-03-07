@@ -1,0 +1,75 @@
+@model SmartCampus.Models.UserDashboardVm
+@{ ViewData["Title"] = "Profilim"; }
+
+<div class="page-header">
+    <h1>👤 Profilim</h1>
+</div>
+
+<div class="profile-grid">
+    <!-- İstatistikler -->
+    <div class="stat-card">
+        <div class="stat-val">@Model.TotalBookings</div>
+        <div class="stat-label">Toplam Rezervasyon</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-val">%@Model.AttendanceRate</div>
+        <div class="stat-label">Katılım Oranı</div>
+    </div>
+    <div class="stat-card @(Model.ActivePenalties >= 3 ? "stat-danger" : "")">
+        <div class="stat-val">@Model.ActivePenalties</div>
+        <div class="stat-label">Aktif Ceza Puanı</div>
+        @if (Model.ActivePenalties >= 3)
+        {
+            <div class="stat-note">⚠️ Yeni rezervasyon yapamazsınız!</div>
+        }
+    </div>
+
+    <!-- Yaklaşan Rezervasyonlar -->
+    <div class="profile-section">
+        <h2>Yaklaşan Rezervasyonlarım</h2>
+        @if (!Model.Upcoming.Any())
+        {
+            <p class="empty-state">Bekleyen rezervasyon yok.</p>
+        }
+        else
+        {
+            <table class="data-table">
+                <thead>
+                    <tr><th>Mekan</th><th>Başlangıç</th><th>Bitiş</th><th>Durum</th><th>İşlem</th></tr>
+                </thead>
+                <tbody>
+                @foreach (var r in Model.Upcoming)
+                {
+                    <tr>
+                        <td>@r.FacilityName</td>
+                        <td>@r.StartTime.ToString("dd.MM HH:mm")</td>
+                        <td>@r.EndTime.ToString("HH:mm")</td>
+                        <td><span class="status-badge status-@r.StatusName.ToLower()">@r.StatusName</span></td>
+                        <td>
+                            <form asp-controller="Reservations" asp-action="Cancel"
+                                  asp-route-id="@r.ReservationID" method="post"
+                                  onsubmit="return confirm('İptal edilsin mi?')">
+                                <button class="btn btn-danger btn-sm">İptal</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    </div>
+
+    <!-- En Boş Mekanlar -->
+    <div class="profile-section">
+        <h2>Şu An En Boş Mekanlar</h2>
+        <div class="mini-cards">
+        @foreach (var f in Model.TopAvailable)
+        {
+            <div class="mini-card level-@f.CrowdLevel.ToLower().Replace(" ", "-")">
+                <strong>@f.FacilityName</strong>
+                <span>%@f.OccupancyPct – @f.CrowdLevel</span>
+            </div>
+        }
+        </div>
+    </div>
+</div>

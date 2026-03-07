@@ -1,0 +1,57 @@
+@model List<SmartCampus.Models.AlternativeVm>
+@{ ViewData["Title"] = "Alternatif Mekanlar"; }
+
+<div class="page-header">
+    <h1>🔍 Alternatif Mekan Önerileri</h1>
+    <p>Seçilen zaman diliminde müsait en boş mekanlar:</p>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="empty-state">Uygun alternatif mekan bulunamadı.</div>
+}
+else
+{
+    <div class="occupancy-grid">
+        @foreach (var f in Model)
+        {
+            var level = f.OccupancyPct switch
+            {
+                0 => "Empty",
+                < 50 => "Low",
+                < 80 => "Moderate",
+                < 100 => "High",
+                _ => "Over Capacity"
+            };
+            var cls = level switch
+            {
+                "Empty"    => "level-empty",
+                "Low"      => "level-low",
+                "Moderate" => "level-moderate",
+                "High"     => "level-high",
+                _          => "level-over"
+            };
+            <div class="facility-card @cls">
+                <div class="card-header">
+                    <span class="facility-name">@f.FacilityName</span>
+                    <span class="crowd-badge">@level</span>
+                </div>
+                <div class="card-body">
+                    <div class="zone-tag">📍 @f.ZoneName</div>
+                    <div class="count-display">
+                        <span class="live-count">@f.CurrentOccupancy</span>
+                        <span class="max-cap">/ @f.MaxCapacity</span>
+                    </div>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" style="width:@(Math.Min(f.OccupancyPct,100))%"></div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a asp-controller="Reservations" asp-action="Book"
+                       asp-route-facilityId="@f.FacilityID" class="btn btn-primary">Rezervasyon Yap</a>
+                </div>
+            </div>
+        }
+    </div>
+}
+<a asp-action="Index" asp-controller="Home" class="btn btn-secondary" style="margin-top:1rem">← Dashboard'a Dön</a>

@@ -1,0 +1,1246 @@
+PNo1: Smart Campus Life & Occupancy Management System
+Goal: A platform that monitors how crowded campus facilities are (library, cafeteria, study
+rooms, event halls) and lets students reserve time slots when needed.
+Who uses it? Students, campus staff, event organizers.
+Typical flow:
+• A student checks: “Is the library crowded right now?”
+• If it’s full, the system suggests alternative facilities.
+• For reservable spaces (study rooms, halls), students book hour-based time slots.
+• “Sensor data” can be simulated (e.g., occupancy count updated every minute).
+Database should store:
+• Facilities (name, location, capacity)
+• Live occupancy logs (timestamp, current count)
+• Reservations (student, facility, start/end time, status)
+Interface should include:
+• A dashboard “heat map” of crowded areas
+• A calendar view for bookings (day/hour)
+• A student profile page (“My reservations”, cancel/edit)
+
+BIM216 – Database Management Systems
+Term Project
+For the term project, you are required to work as a group of two.
+Please note that you must continue with the group project (topic) that
+is assigned to you at the beginning of the semester, thus you are not
+allowed to change your topic.
+Due Dates of Project Deliverables
+Due Date for “Progress Report” – April, 5
+Due Date for “Final Report”. – May, 3
+“Term Project Presentations” – May, 4 – May, 6
+As the primary DB-Engine, you are required to use a relational database, such as
+MySQL, Microsoft SQL Server, or PostgreSQL. These are provided as examples,
+and your project must be built on a relational database system as the core
+component. While it is not mandatory, you may explore hybrid database
+architectures by integrating other database types (e.g., NoSQL, key-value stores)
+for specific functionalities, such as user authentication or caching. This could
+provide valuable hands-on experience in designing systems that combine
+relational and non-relational database technologies.
+Project Overview
+This term project aims to provide hands-on experience in designing and implementing a database-driven
+application using a full-fledged relational database management system (RDBMS). Throughout the
+semester, you will design and implement a database application, which will include an application
+program (web application or desktop application) and a supporting relational database. The term
+project includes the following activities spread over the entire semester:
+1. Database Design and Development:
+o Determine the functionalities and operations of your database application. Think about
+the various requirements for the user of your application and the various data attributes
+that need to be stored and later queried (consider factors such as the need to store and
+query large data volumes, support multiple users, provide concurrent access, maintain
+consistency, etc.). So, the starting point of your project is to explore questions such as:
+• What is the purpose of the database? What should it do?
+• Who are the users and what are their information needs?
+• What are the problems that the system should solve?
+• What input data is available to the database?
+• What kind of information should be stored in the database?
+o Database development:
+• Model the data to be stored in your database, i.e., identify the various entities,
+relationships, constraints, etc.
+• Design your relational database schema.
+• Write the SQL commands to create your database and tables.
+2. Application Development and Demonstration:
+o Find appropriate data, and populate the database with at least 5,000 records.
+o Develop your application program, which should have supporting codes to access the
+data from your DBMS.
+o Test your system and check if the application works as desired. Your project should
+"evolve" during the course of the semester, but for the most part, the functionality
+promised in the first deliverable must be achieved. For this purpose, make sure you
+perform a thorough requirement analysis at the beginning and balance features so you
+can "fulfill this contract" in the end.
+The end result should be a functioning application that uses your underlying relational database to
+enable useful functionality.
+Project Phases
+Phase 1. Database Design and Development
+This phase focuses on the conceptual and physical design of the database. It includes the
+following three steps:
+- Phase 1 – Step 1: Requirement Analysis
+This first step involves defining the functionalities and operations of the database application.
+Students should:
+• Identify the main objectives of their database system.
+• Define the user types and their respective information needs.
+• Specify the problems the system aims to solve.
+• Determine the key data attributes and relationships necessary for supporting
+queries.
+• Ensure that the database adds value beyond simple data retrieval, by enabling
+advanced queries such as: Monthly sales analysis, customer ranking, inventory
+forecasting, etc. Hence, list a number of (at least five) meaningful database queries
+that will be implemented later, in order to show that your application has the potential
+to have such interesting database queries (In the final phase we expect to see these
+advanced queries in your application program).
+- Phase 1 - Step 2: Entity-Relationship (E/R) Design
+Based on the requirement analysis, students must create an E/R diagram that models:
+• Entities, attributes, and relationships.
+• Cardinalities and constraints.
+• A clear conceptual representation of the database structure.
+The E/R diagram should be developed using a suitable tool such as Visio, Lucidchart, Draw.io,
+Word, etc..
+- Phase 1 - Step 3: Relational Schema and Database Implementation
+The mapping process presented in class is need to be applied to your E/R diagram in order to obtain
+the relational database schema. Students should:
+• Convert the E/R diagram into a relational database schema.
+• Define SQL CREATE TABLE commands, including integrity constraints.
+Phase 2. Application Development and Final Demonstration
+In this phase, students will develop a functional application on top of their designed database.
+Hence,
+• Implement a fully working software system that interacts with your database.
+• The application should feature:
+• Graphical User Interface (GUI) for users.
+• Login system with different user types.
+• CRUD (Create, Read, Update, Delete) operations.
+• Advanced queries for reporting & analytics, showcasing the value of stored
+data (e.g., complex joins, aggregations, nested queries, etc.)..
+• Prepare a Final Report:: Students must submit a Final Report that documents:
+• The entire project process (from design to development).
+• The final database schema and SQL queries.
+• Screenshots and explanations of the application interface and functionalities.
+• Note: Submission of the Final Report is mandatory. Students who fail to submit
+will not be allowed to present their project.
+• Demonstrate your Work: Each group will demonstrate their working system during the
+Term Project Final Demonstration Week.
+• Each group will have 10 minutes to showcase their fully functional system.
+• No PowerPoint presentations are required. Instead, groups must demonstrate
+their working software live..
+Term Project - Submission Guidelines
+Your work for each phase should be submitted through the ESTUOYS system by the specified
+deadlines.
+• Only one member of each group should submit the assignment on behalf of the group.
+• Late submissions will not be accepted after the deadline.
+Phase 1 - Submission
+1. Progress Report: A well-structured report (“word” file) including:
+o A cover page (Group No, Project No-Name, Group members, Contribution of the group
+member)
+o Requirement analysis
+o E/R diagram (include a picture of your E/R diagram and explain)
+o Relational Database Schema (include a picture of your Relational Database Schema
+inside your repor and explain)
+o The SQL commands to create your database and tables with some description (You
+can attach relevant files with .sql extension including commands for data insertion).
+o At least 5 interesting/advanced queries
+2. Additional Files
+📎 E/R Diagram File (Editable format: .drawio, .vsdx, .lucid, etc.)
+📎 SQL Database File (.sql) – The database schema
+Phase 2 - Submission
+1. Final Report: A comprehensive final report (“word” file) describing your work through the
+semester, including:
+o A cover page (Group No, Project No-Name, Group members, Contribution of the group
+member)
+o Requirement analysis (if modified based on Phase 1 feedback – what improvements
+were made?)
+o Corrected E/R Diagram (if modified based on Phase 1 feedback – what improvements
+were made?)
+o Final Relational Database Schema (if updated – what improvements were made?)
+o System Functionalities: Describe the functionalities of your program with screenshots
+of your user interfaces (ex: adding new data, deleting some data, modifying some data,
+different user types & their access levels, execution results of advanced queries (from
+Phase-1).
+o Challenges & Improvements: Any encountered challenges and how they were
+handled.
+o Conclusion
+2. Project Files
+📎 Updated E/R Diagram File (Editable format: .drawio, .vsdx, .lucid, etc.)
+📎 Application Source Code (Zipped folder containing all project files and necessary
+dependencies)
+📎 Database Dump File (.sql) – Final database with data for testing
+📎 "How to Run" Instructions (how_to_run.txt) – A step-by-step guide on how to set up and run
+your application
+Final Demonstration Guidelines
+• Mandatory: Only groups that submit the Final Report can participate in the demonstration.
+Hence, without submitting the Final Report, groups will not be eligible to present their project.
+• Note: You are only required to demonstrate your program in detail. Please note that if you
+do not have a functioning program or code (i.e., if no application has been developed),
+there will be no content available for demonstration.
+
+
+BIM216 – DBMS
+Smart Campus Life &
+Occupancy Management System
+Proje No: PNo1
+Veritabani Tasarimi & SQL Script Dokumantasyonu
+
+
+Ders	BIM216 – Database Management Systems
+Veritabani Motoru	Microsoft SQL Server (T-SQL)
+Script Versiyonu	v2.1 – Final
+Toplam Nesne Sayisi	10 Tablo  |  3 Index  |  2 View  |  3 Trigger  |  9 Stored Procedure
+ 
+1. Projenin Amaci ve Genel Yapisi
+
+Bu proje, bir universite kampusundeki mekanlarin (kutuphane, kafeterya, calisma odalari, etkinlik salonlari) anlık dolulugunu izleyen ve ogrencilerin rezervasyon yapabilmesini saglayan bir platform icin veritabani tasarimi gerceklestirilmesini kapsamaktadir.
+
+Sistem uc farkli kullanici grubuna hizmet vermektedir:
+•	Ogrenciler: Doluluğu goruntuleme ve calisma odasi rezervasyonu yapma
+•	Kampus Personeli: Mekan yonetimi ve doluluk raporlari
+•	Etkinlik Organizatorleri: Salon rezervasyonu ve katilimci takibi
+
+Temel fikir: Sensor verisi her 30 dakikada bir sisteme gelmektedir. Ogrenci 'Kutuphane dolu mu?' diye sorduğunda sistem en son sensorden gelen veriyi anlık olarak gosterir. Dolu ise sistem otomatik olarak alternatif mekan onerir.
+
+Veritabani Nesneleri Ozeti
+
+Nesne Turu	Adet	Aciklama
+Tablo (TABLE)	10	Verinin fiziksel olarak saklandigi yapilar
+Index	3	Sorgu hizlandirma; SensorID ve zaman araligina gore
+View (GORUNTULEME)	2	Sik kullanilan sorgu sonuclarini saklayan hazir tablolar
+Trigger	3	Belirli olayda otomatik calisan veritabani kurallari
+Stored Procedure	9	Isimlendirilmis, parametreli gelismis sorgular
+Constraint (Kisit)	6+	Yanlis veri girisini onleyen kurallar
+ 
+2. Tablolar (Tables)
+
+Bir tablo veritabanindaki bir Excel sayfasi gibidir; satirlar kayitlari, sutunlar ozellikleri temsil eder. Asagida her tablonun ne ise yaradigi detayli sekilde aciklanmistir.
+
+2.1 Roles — Kullanici Rolleri
+
+Sutun	Aciklama
+RoleID	Her rolu tek olarak tanimlayan otomatik artan sayi. PRIMARY KEY oldugu icin tekrar edemez.
+RoleName	Rolun adi: 'Student', 'Staff', 'EventOrganizer', 'Admin'. UNIQUE kisiti sayesinde ayni isimde iki rol eklenemez.
+
+Bu tablo neden var? Bir kullanicinin sistemde ne yapabilecegini belirler. 'Student' rolundeki biri sadece rezervasyon yapabilirken, 'Admin' her seyi goreblir.
+
+2.2 FacilityTypes — Mekan Turleri
+
+Kutuphane, kafeterya, calisma odasi gibi mekan kategorilerini tutar. Facilities tablosuna bagli lookup (referans) tablosudur.
+
+Sutun	Aciklama
+TypeID	Otomatik artan birincil anahtar.
+TypeName	Tur adi: 'Library', 'Cafeteria', 'StudyRoom', 'EventHall', 'Lab'. UNIQUE kisiti sayesinde ayni tur iki kez girilemez.
+
+2.3 Statuses — Rezervasyon Durumlari
+
+Bir rezervasyonun yasam dongusu durumlarini tanimlar: Pending (Beklemede) → Approved (Onaylandi) → Completed (Tamamlandi) veya Cancelled (Iptal Edildi).
+
+Bu tablo neden ayri? Durum adlarini kodun icerisine yazmak yerine veritabaninda tutmak, ileride yeni durum eklemek veya isim degistirmek icin tek bir yer saglar. Sorgularimizda StatusName = 'Approved' diyebiliriz.
+
+2.4 Users — Kullanicilar
+
+Sisteme kayitli tum kullanicilari (ogrenci, personel, organizator, admin) tek bir tabloda saklar.
+
+Sutun	Aciklama
+UserID	Otomatik artan birincil anahtar.
+FirstName / LastName	Kullanicinin adi ve soyadi. NOT NULL oldugu icin bos gecilemez.
+Email	Giris yapilacak e-posta. UNIQUE kisiti sayesinde ayni mail ile iki hesap acillamaz.
+PasswordHash	Sifre duz metin olarak saklanmaz; MD5/bcrypt gibi bir algoritmadan gecirilerek hash olarak tutulur. Bu guvenligi arttirir.
+CreatedAt	Hesabin acilis tarihi. DEFAULT GETDATE() ile sunucu saati otomatik kaydedilir.
+IsActive	BIT (0 veya 1). 0 = hesap devre disi; silinmis gibi davranir ama veri kaybolmaz. Bu 'soft delete' teknigidir.
+FullName (PERSISTED)	Ozel bir sutun: FirstName + ' ' + LastName formulunden hesaplanir ve fiziksel olarak depolanir. Her sorguda tekrar hesaplamaya gerek kalmaz. SQL Server bunu PERSISTED computed column olarak destekler.
+
+-- FullName computed column nasil calisir?
+FullName AS (FirstName + N' ' + LastName) PERSISTED
+Yukaridaki satir: 'FullName' sutununa hicbir zaman elle deger girilmez. SQL Server, FirstName ve LastName degistiginde FullName'i otomatik gunceller ve diske yazar.
+
+2.5 UserRoles — Kullanici-Rol Eslestirmesi
+
+Bir kullanicinin birden fazla rolu olabilir (ornegin bir kisi hem Staff hem EventOrganizer olabilir). Bu tablo Users ile Roles arasinda cok-a-cok (many-to-many) iliskiyi saglar.
+
+Sutun	Aciklama
+UserID	Users tablosuna disaridan anahtar (FOREIGN KEY). Kullanici silinirse bu satirlar da CASCADE ile silinir.
+RoleID	Roles tablosuna disaridan anahtar. Rol silinirse iliskilendirmeler de silinir.
+PRIMARY KEY (UserID, RoleID)	Birlesik birincil anahtar. Ayni kullaniciya ayni rol iki kez eklenemez.
+
+2.6 Zones — Kampus Bolgeleri
+
+Kampusu hiyerarsik bolgelere ayirir. Bir bina ana bolge olabilir, altinda katlar, katlarda da odalar yer alabilir.
+
+Sutun	Aciklama
+ZoneID	Otomatik artan birincil anahtar.
+ZoneName	Bolge adi. UNIQUE kisiti ile tekrar edemez.
+Building / FloorNo	Binanin adi ve kat numarasi. NULL olabilir cunku ust duzey 'A Block' gibi bir bolgenin kat numarasi olmayabilir.
+ParentZoneID	Kendi tablosuna referans veren ozel bir foreign key. Ornegin 'A Block Ground' bolgesinin ParentZoneID degeri 'A Block' satirinin ZoneID'sini gosterir. Bu SELF-REFERENCING (oz referansli) FK teknigidir ve hiyerarsik yapilari modellemek icin kullanilir.
+
+-- Hiyerarsik yapi ornegi:
+A Block (ZoneID=1, ParentZoneID=NULL)
+  A Block Ground (ZoneID=2, ParentZoneID=1)
+  A Block First  (ZoneID=3, ParentZoneID=1)
+
+2.7 Facilities — Mekanlar
+
+Kutuphane, kafeterya, calisma odalari gibi tum rezerve edilebilir veya izlenebilir mekanlari tanimlar.
+
+Sutun	Aciklama
+ZoneID / TypeID	Hangi bolgede oldugunu ve ne tur bir mekan olduğunu gosterir. Her ikisi de FOREIGN KEY'dir.
+MaxCapacity	Mekanin maksimum kisi kapasitesi. CHECK (MaxCapacity > 0) kisiti ile 0 veya negatif girilmesi engellenir.
+IsReservable	BIT: 1 = rezervasyon yapilabilir (calisma odasi gibi), 0 = sadece izlenir (kafeterya gibi).
+IsOperational	BIT: 0 = mekan kapali veya bakimda. Kapali mekanlari sorgulardan dislamak icin kullanilir.
+OpenTime / CloseTime	Mekanin acilis ve kapanis saatleri. TIME tipinde saklanir.
+chk_OperatingHours	CHECK kisiti: CloseTime her zaman OpenTime'dan buyuk olmalidir. Orn: 09:00-08:00 gibi yanlis giris engelllenir.
+
+2.8 Sensors — IoT Sensorler
+
+Her mekanin girisine yerlestirilmis kisi sayaci sensorlerini tanimlar. Her sensor, cihazi fiziksel olarak tanimlayan bir MAC adresiyle tanimlanir.
+
+Sutun	Aciklama
+FacilityID	Hangi mekana ait oldugunu gosterir. ON DELETE CASCADE: mekan silinirse sensorler de silinir.
+SensorMac	Cihazin MAC adresi: AA:BB:CC:DD:EE:FF formatinda. NVARCHAR(17) tam bu formati sigdirir. UNIQUE kisiti ile ayni MAC'li iki sensor kaydedilemez.
+InstalledAt	Sensorun kurulum tarihi. DEFAULT ile kayit tarihi otomatik alinir.
+IsActive	Sensor bozulursa IsActive=0 yapilir; eski verileri silmeden devre disi birakilir.
+
+2.9 OccupancyLogs — Doluluk Kayitlari
+
+Sensorlerden her 30 dakikada bir gelen 'su anda kac kisi var' verisini kaydeder. Sistemin en cok veri uretecek tablosudur.
+
+Sutun	Aciklama
+LogID	BIGINT: INT'in 2 milyar sinirini asabilmek icin buyuk tam sayi tipi kullanildi. Uzun sure calisacak sistemlerde INT dolabilir.
+SensorID	Hangi sensorun veriyi gonderdigi. ON DELETE CASCADE ile sensor silinirse loglar da silinir.
+LoggedAt	Verinin kayit zamani. DEFAULT GETDATE() ile sunucu saati otomatik yazilir.
+CurrentCount	O andaki kisi sayisi. CHECK (CurrentCount >= 0) ile negatif deger girilmesi engellenir.
+
+Neden IsOverCapacity buraya computed column olarak eklenmedi? SQL Server, computed column icinde baska tabloya subquery yazmaya izin vermez. Bu yuzden 'kapasite asimi' bilgisini vw_LiveOccupancy view'inda hesapliyoruz.
+
+ 
+2.10 Reservations — Rezervasyonlar
+
+Bir kullanicinin bir mekani belirli bir zaman dilimi icin rezerve etmesini kaydeder.
+
+Sutun	Aciklama
+ReservationID	BIGINT birincil anahtar; cok sayida rezervasyon beklendigi icin buyuk tip secildi.
+FacilityID	Hangi mekan rezerve ediliyor.
+OrganizerUserID	Rezervasyonu kim olusturdu.
+StatusID	Mevcut durum: Pending, Approved, Cancelled, Completed.
+StartTime / EndTime	Rezervasyonun baslangic ve bitis saati.
+CancelledAt	NULL olabilir. Iptal edilmisse iptal tarihi girilir. NULL = iptal edilmemis.
+chk_ReservationTime	CHECK kisiti: EndTime her zaman StartTime'dan sonra olmalidir.
+chk_CancellationLogic	CHECK kisiti: CancelledAt tarihi, CreatedAt'tan once olamaz. Mantiksal tutarlilik saglar.
+
+2.11 ReservationAttendees — Rezervasyon Katilimcilari
+
+Bir rezervasyona katilan tum kullanicilari kaydeder. Organizator disindaki kisilar (davetliler) burada listelenir.
+
+Sutun	Aciklama
+PRIMARY KEY (ReservationID, UserID)	Birlesik anahtar: ayni kullanici ayni rezervasyona iki kez eklenemez.
+IsAttended	BIT: 1 = kisi geldi, 0 = gelmedi. Varsayilan 0'dir; check-in yapilinca 1 olur.
+CheckedInAt	Kisi kaydoldugunda sunucu zamani. NULL ise henuz check-in yapmamistir.
+chk_CheckIn	CHECK kisiti: CheckedInAt dolu ise IsAttended mutlaka 1 olmalidir. Birinin check-in saati varken 'gelmedi' diye isaretlenmesi engellenir.
+
+2.12 ReservationAuditLog — Degisiklik Gunlugu
+
+Bir rezervasyonun durumu her degistiginde bu tabloya otomatik kayit duser. Kimin ne zaman ne degistirdigini geri donuk olarak incelemek icin kullanilir.
+
+Bu tablo elle doldurulmaz. trg_AuditStatusChange adli trigger, Reservations tablosundaki her UPDATE islemini izler ve durum degisirse bu tabloya otomatik yazar.
+
+2.13 UserPenalties — Kullanici Ceza Puanlari
+
+Rezervasyon yapip gelmeyen (no-show) kullanicilara verilen ceza puanlarini kaydeder. 3 veya daha fazla aktif cezasi olan kullanici yeni rezervasyon yapamaz.
+
+Sutun	Aciklama
+PenaltyPoints	SMALLINT: genellikle 1'dir; ileride farkli agirliklar icin buyutulebilir.
+ExpiresAt	Cezanin son kullanma tarihi. DEFAULT 30 gun sonraya alinir; bu tarihi gecen cezalar IsActive=0 yapilarak gecersiz sayilir.
+IsActive	BIT: 0 = bu ceza artik gecerli degil (suresi doldu veya affedildi).
+ 
+3. Indexler (Indexes)
+
+Index, bir kitabin sonundaki dizin gibidir. Hangi verilerin nerede oldugunu onceden siralanmis sekilde tutar, boylece SQL Server tum satirlari taramadan (full scan) hedef satira dogrudan eriser. Dogru index olmadan buyuk tablolarda sorgular yavaslayabilir.
+
+3.1 IX_OccupancyLogs_Sensor_Time
+
+CREATE NONCLUSTERED INDEX IX_OccupancyLogs_Sensor_Time
+    ON OccupancyLogs (SensorID, LoggedAt DESC)
+    INCLUDE (CurrentCount);
+
+OccupancyLogs tablosu en cok veri uretecek tablodur. En yeni kaydi bulmak icin her zaman 'bu sensor, en son ne zaman veri gonderdi?' sorusu sorulur.
+•	(SensorID, LoggedAt DESC): Once sensore gore, sonra zamana gore ters sirala. Bu sayede 'bu sensorun son kaydi' sorgusunda ilk satir zaten istedigimiz satirdir.
+•	INCLUDE (CurrentCount): Bu sutun index yapisi icinde ek olarak tasir. Sorgu, ana tabloyu hic ziyaret etmeden (lookup olmadan) CurrentCount degerine erisebilir. Bu 'covering index' teknigi olarak bilinir.
+
+3.2 IX_Reservations_Facility_Time
+
+CREATE NONCLUSTERED INDEX IX_Reservations_Facility_Time
+    ON Reservations (FacilityID, StartTime, EndTime)
+    INCLUDE (StatusID);
+
+Cakisma kontrolu sorgusu cok sik calisir: 'Bu mekanda su zaman araliginda aktif rezervasyon var mi?' sorusunu cevaplar. FacilityID + StartTime + EndTime kombinasyonu uzerinden index, bu sorguyu tam olarak karsilar.
+
+3.3 IX_Users_Email_Active (Filtered Index)
+
+CREATE UNIQUE NONCLUSTERED INDEX IX_Users_Email_Active
+    ON Users (Email)
+    WHERE IsActive = 1;
+
+Filtered Index (Filtreli Index): WHERE kosulu sayesinde index yalnizca aktif kullanicilari kapsar. Devre disi kullanicilarin e-postalari indexe dahil edilmez, hem index boyutu kucuktur hem de ayni mail ile yeniden kayit acilabilir.
+
+Ornek: Bir kullanici hesabini silmek istediğinde gercekte silmeyiz, IsActive=0 yapariz. Filtred index sayesinde o e-posta artik index disindadir; baska biri ayni mail ile kayit yapabilir.
+ 
+4. View'lar (Goruntulemeler)
+
+View, gercek bir tablo degil; kaydedilmis bir SELECT sorgusudur. Sanki tabloymus gibi SELECT yapabilirsiniz ama icinde veri yoktur; her cagirildiginda sorguyu calistirir.
+
+4.1 vw_LiveOccupancy — Canli Doluluk
+
+Her mekanin su anki dolulugunu hesaplar. Dashboard icin olusturulmustur; farkli yerlerden tek satirla cagrilabilir.
+
+Nasil calisir? Adim adim:
+
+-- Adim 1: Her sensorun en yeni kaydi (CTE ile)
+WITH LatestPerSensor AS (
+    SELECT SensorID, CurrentCount, LoggedAt,
+           ROW_NUMBER() OVER (PARTITION BY SensorID ORDER BY LoggedAt DESC) AS rn
+    FROM OccupancyLogs
+)
+
+ROW_NUMBER() OVER (PARTITION BY SensorID ORDER BY LoggedAt DESC): Her SensorID grubu icin kayitlari zamana gore ters siralayip numara verir. Yani her sensorun en yeni kaydi rn=1 alir. Disardaki sorguda WHERE rn=1 diyerek sadece en yeni kaydi aliyoruz.
+
+Cikti Sutunu	Aciklama
+LiveCount	ISNULL(CurrentCount, 0): Sensor verisi yoksa 0 goster; NULL degeri duruyor olabilir.
+OccupancyPct	Doluluk yuzdesi: (LiveCount * 100.0 / MaxCapacity). DECIMAL(5,2) ile 2 ondalik basamak.
+IsOverCapacity	BIT: LiveCount > MaxCapacity ise 1, degilse 0. Subquery gerektirdigi icin computed column olarak tanimlanamaz, view icinde hesaplanir.
+CrowdLevel	CASE ifadesiyle metin etiket: Empty / Low / Moderate / High / Over Capacity.
+
+4.2 vw_TodayReservations — Bugunun Rezervasyonlari
+
+Bugun yapilmis tum rezervasyonlari, organizator ismiyle, sure hesaplamasiyla ve katilimci sayisiyla gosterir. Calendar view icin kullanilir.
+
+WHERE CAST(r.StartTime AS DATE) = CAST(GETDATE() AS DATE)
+
+CAST(StartTime AS DATE): DATETIME turunden tarihi koparir, saati atar. GETDATE() sunucunun tam simdi tarihi/saatidir. Ikisini DATE'e donusturup karsilastirarak sadece bugunun rezervasyonlari alinir.
+
+COUNT(ra.UserID) AS AttendeeCount: Her rezervasyonun katilimci sayisini hesaplar. Bunun icin GROUP BY gerekir; GROUP BY'a tum non-aggregate sutunlar dahil edilmistir.
+ 
+5. Trigger'lar
+
+Trigger, bir tabloda INSERT, UPDATE veya DELETE islemi yapildiginda otomatik olarak devreye giren veritabani kuralidir. Uygulama kodu yazmadan is mantigini veritabani katmaninda zorlamak icin kullanilir.
+
+5.1 trg_AuditStatusChange — Durum Degisikligini Logla
+
+Ne yapar: Reservations tablosundaki herhangi bir UPDATE isleminden sonra (AFTER UPDATE) calisiir. Eger rezervasyonun StatusID'si gercekten degistiyse, eski ve yeni durum numarasini ReservationAuditLog tablosuna yazar.
+
+CREATE TRIGGER trg_AuditStatusChange ON Reservations AFTER UPDATE AS
+BEGIN
+    INSERT INTO ReservationAuditLog (ReservationID, OldStatusID, NewStatusID, ChangedAt)
+    SELECT i.ReservationID, d.StatusID, i.StatusID, GETDATE()
+    FROM inserted i JOIN deleted d ON i.ReservationID = d.ReservationID
+    WHERE i.StatusID <> d.StatusID;
+END;
+
+'inserted' ve 'deleted' sanal tablolari: SQL Server her trigger icin bu iki sanal tabloyu otomatik olusturur. 'inserted' yeni (guncellenmis) veriyi, 'deleted' eski veriyi tutar. UPDATE islemi aslinda eski satiri siler yeni satirı ekler; bu yuzden ikisine de ulasmak mumkundur.
+
+5.2 trg_AutoNoShowPenalty — Otomatik Ceza Puani
+
+Ne yapar: Bir rezervasyon 'Completed' (Tamamlandi) durumuna gectiginde, o rezervasyona kayitli olup gelmeyen (IsAttended=0) herkese 30 gun gecerli 1 puan ceza yazar.
+
+Neden IF NOT EXISTS kullaniyoruz?
+Trigger her UPDATE'te tetiklenir. Eger durum 'Completed' a gecmiyorsa tetiklenip bos is yapmasin diye onceden kontrol ediyoruz ve RETURN ile cikyoruz. Bu performans icin onemlidir.
+
+5.3 trg_BlockSuspendedUser — Cezali Kullaniciya Rezervasyon Engeli
+
+Ne yapar: Bu trigger INSTEAD OF INSERT tur. Normal INSERT yerine calisiir. Once kullanicinin 3 veya daha fazla aktif ceza puani olup olmadigini kontrol eder. Varsa hata verir ve ekleme yapmaz. Yoksa orijinal INSERT islemini kendisi gerceklestirir.
+
+CREATE TRIGGER trg_BlockSuspendedUser ON Reservations INSTEAD OF INSERT AS
+BEGIN
+    IF EXISTS ( ... HAVING COUNT(*) >= 3 )
+    BEGIN
+        RAISERROR('User is blocked due to repeated no-shows.', 16, 1);
+        RETURN;
+    END;
+    INSERT INTO Reservations (...) SELECT ... FROM inserted;
+END;
+
+INSTEAD OF trigger ile AFTER trigger farki: AFTER trigger islemden sonra ek is yapar. INSTEAD OF trigger ise orijinal islemi tamamen eline alir; islem yapmak istiyorsa kendisi yapmak zorundadir.
+ 
+6. Stored Procedure'ler
+
+Stored Procedure, veritabaninda saklanan ve isimle cagirilebilen SQL kodu bloklaridir. Her seferinde SQL'i tekrar yazmak yerine tek komutla cagrilir. Parametre alabilir, birden fazla sorgu calistiralibir.
+
+6.1 sp_GetLiveHeatmap — Canli Isi Haritasi
+
+Her mekani su anki doluluguna gore zone icinde siralar ve zone bazinda istatistikler ekler.
+
+Kullanilan ileri SQL teknikleri:
+
+Teknik	Aciklama
+CTE (WITH)	Ana sorguda kod tekrarini onlemek icin once OccupancyBase adli gecici sorgu tanimi yapilir.
+DENSE_RANK() OVER (PARTITION BY ZoneName ORDER BY OccupancyPct DESC)	Her zone icinde mekanlari doluluk yuzdesine gore siralar. DENSE_RANK esit degerlerde bosluk birakmaz (1,1,2 verir, 1,1,3 vermez).
+SUM(LiveCount) OVER (PARTITION BY ZoneName)	Zone'daki toplam kisi sayisini her satirda gosterir. Pencere fonksiyonu oldugu icin GROUP BY gerektirmez.
+AVG(OccupancyPct) OVER (PARTITION BY ZoneName)	Zone ortalamasini hesaplar.
+OccupancyPct - AVG(...) OVER (...)	Mekanin zone ortalamasindan ne kadar saptigi. Negatif = ortalamadan daha bos, pozitif = ortalamadan daha dolu.
+
+6.2 sp_GetNoShowReport — No-Show Analizi
+
+En az 3 rezervasyonu olan kullanicilarin devamsizlik oranini ve risk etiketini hesaplar.
+
+Teknik	Aciklama
+HAVING COUNT(...) >= 3	GROUP BY sonrasinda filtreler. WHERE GROUP BY oncesi filtreler; burada toplam rezervasyon sayisi agregasyon sonrasi bilinir.
+PERCENT_RANK() OVER (ORDER BY ...)	Her kullaniciyi 0 ile 100 arasinda siralar. 100 = en cok devamsizlik yapan. Bu SQL Standard pencere fonksiyonudur.
+SUM(CASE WHEN ... THEN 1 ELSE 0 END)	Kosullu toplama: devamsizliklari saymanin klasik yolu. IF-ELSE yerine CASE kullanilir cunku SQL setler uzerinde calisir.
+
+6.3 sp_SuggestAlternatives — Akilli Alternatif Onerici
+
+Verilen zaman arali̇gi icin dolupmus veya cakisan rezervasyonu olan mekanlari dislar; geriye kalan mekaanlari en bos olanidan sirali getirir.
+
+WITH Conflicts AS (
+    SELECT DISTINCT FacilityID FROM Reservations
+    WHERE StatusID = @ApprovedID
+      AND StartTime < @End AND EndTime > @Start
+)
+
+Cakisma mantigi: Iki zaman araligi cakisiyorsa; A baslangici B bitisinden once VE A bitisi B baslangicından sonradir. Bu en yakin cakisma formuludur; tum ozel durumları (ic ice, kısmen örtüsen) kapsar.
+
+6.4 sp_GetUsageByRole — Rol Bazli Kullanim
+
+Her rol ve mekan turu kombinasyonu icin toplam rezervasyon sayisi, toplam saat ve ortalama sure hesaplar. GROUP BY ROLLUP ile otomatik ara toplam satirlari eklenir.
+
+GROUP BY ROLLUP(ro.RoleName, ft.TypeName)
+
+ROLLUP: Normal GROUP BY'a ek olarak her RoleName icin 'tum tipler' toplami ve en sonda 'tum roller, tum tipler' genel toplami satirlari olusturur. ISNULL(..., 'ALL ROLES') ile bu NULL satirlara anlamli etiket verilir.
+
+6.5 sp_GetPeakHours — Yogun Saat Analizi
+
+Bir mekan icin saat bazinda ortalama dolulugu hesaplar; onceki ve sonraki saate gore trendi gosterir.
+
+Teknik	Aciklama
+LAG(AvgOccupancy, 1) OVER (ORDER BY HourOfDay)	Bir onceki saatin degerini sorgular. Fark alarak 'bu saat oncekinden kac kisi daha fazla?' sorusu cevaplanir.
+LEAD(AvgOccupancy, 1) OVER (ORDER BY HourOfDay)	Bir sonraki saatin degerine bakar. Iki deger de mevcut satirda gorunur; tabloya gitmeye gerek yoktur.
+ROWS UNBOUNDED PRECEDING	Ilk satirdan su ana kadarki tum satirlarin ortalamasini hesaplar. 'Kumulatif ortalama' verir.
+DENSE_RANK() OVER (ORDER BY AvgOccupancy DESC)	En yogun saatten en seyreğe dogru siralar. 1 = en yogun saat.
+
+6.6 sp_GetWeeklyTrend — Haftalik Trend
+
+Son 7 gune ait gunluk ortalama ve 3 gunluk hareketli ortalama hesaplar. Anilik dalgalanmalari yumusamis trend gosterir.
+
+AVG(CAST(DailyAvg AS FLOAT))
+    OVER (ORDER BY LogDate ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)
+
+ROWS BETWEEN 2 PRECEDING AND CURRENT ROW: Su satir dahil onceki 2 satirin ortalamasini hesaplar. Yani 3 gunluk kayan pencere. Gunluk zipler olmadan genel egilimi gormeye yarar.
+
+6.7 sp_GetWeeklyUtilisationPivot — Haftalik Pivot Raporu
+
+Satirlari mekan, sutunlari haftanin gunleri olan bir capraz tablo olusturur. Her hucrede o mekanin o gundeki ortalama doluluk yuzdesi gozukur.
+
+PIVOT (
+    AVG(OccupancyPct)
+    FOR DayName IN ([Monday],[Tuesday],...,[Sunday])
+) AS Pvt
+
+PIVOT: Satir degerlerini sutuna donusturur. DayName sutunundaki 'Monday', 'Tuesday' gibi deger her biri ayri bir sutun haline gelir. Bu teknik olmadan ayni sonucu elde etmek icin 7 ayri CASE ifadesi yazmak gerekirdi.
+
+6.8 sp_GetZoneHierarchy — Bolge Hiyerarsisi
+
+Zones tablosundaki self-referencing yapiyi recursive (oz-kendini cagiran) CTE ile agac seklinde listeler. Her bolgein hangi seviyede oldugunu ve altindaki tum mekanlarin toplam kapasitesini gosterir.
+
+WITH ZoneTree AS (
+    -- Baslangic: ust duzey (ParentZoneID IS NULL)
+    SELECT ZoneID, ZoneName, 0 AS Depth, ZoneName AS ZonePath FROM Zones
+    WHERE ParentZoneID IS NULL
+
+    UNION ALL
+
+    -- Tekrar eden kisim: cocuk bolgeleri ekle
+    SELECT z.ZoneID, z.ZoneName, zt.Depth+1, zt.ZonePath + ' > ' + z.ZoneName
+    FROM Zones z JOIN ZoneTree zt ON z.ParentZoneID = zt.ZoneID
+)
+
+Recursive CTE iki parcadan olusur: 1) Anchor (baslangic) kismi: hiyerarsinin tepesindeki kayitlari getirir. 2) Recursive (tekrar) kismi: her iterasyonda bir onceki seviyenin cocuklarini ekler. SQL Server maksimum 100 iterasyon yapar (MAXRECURSION).
+
+6.9 sp_FindFreeSlots — Bos Slot Bulucu
+
+Belirli bir mekan ve tarih icin 1 saatlik bos zaman dilimlerini bulur. Recursive CTE ile acilis-kapanis arasindaki tum saatlik slotlar uretilir, sonra onaylanmis rezervasyonlarla cakisanlar elenir.
+
+WITH Slots AS (
+    SELECT @OpenDT AS SlotStart, DATEADD(HOUR,1,@OpenDT) AS SlotEnd
+    UNION ALL
+    SELECT DATEADD(HOUR,1,SlotStart), DATEADD(HOUR,1,SlotEnd)
+    FROM Slots WHERE DATEADD(HOUR,1,SlotEnd) <= @CloseDT
+)
+
+Bu recursive CTE sayi sayar gibi calisir: her adimda bir saatlik kaydirma yapar. WHERE NOT EXISTS ile her slot icin cakisan bir rezervasyon olup olmadigini kontrol eder. Cakisma yoksa 'Available' olarak doner.
+ 
+7. Ornek Veri (Seed Data)
+
+Script calistiginda asagidaki ornek veriler otomatik olarak eklenir:
+
+Tablo	Eklenen Veri
+Roles	4 rol: Student, Staff, EventOrganizer, Admin
+FacilityTypes	5 tip: Library, Cafeteria, StudyRoom, EventHall, Lab
+Statuses	4 durum: Pending, Approved, Cancelled, Completed
+Zones	5 bolge: A Block (ust) > Ground/First, B Block (ust) > Ground
+Facilities	6 mekan: Kutuphane, Kafeterya, 2 Calisma Odasi, Konferans Salonu, Lab
+Users	4 kullanici: Ayse, Mehmet, Zeynep, Ali
+Sensors	6 sensor (her mekana 1 adet)
+OccupancyLogs	~576 kayit (6 sensor x 96 zaman dilimi = 48 saat / 30 dk)
+Reservations	1 aktif rezervasyon (Study Room A, 2 saat sonra baslayan)
+ReservationAttendees	2 katilimci (Ayse ve Mehmet)
+
+Rastgele Sensor Verisi Nasil Uretildi?
+
+ABS(CHECKSUM(NEWID())) % (f.MaxCapacity + 1)
+
+NEWID(): Her satir icin tamamen rastgele bir GUID uretir. CHECKSUM(): GUID'i sayiya donusturur (negatif olabilir). ABS(): Mutlak deger alarak pozitife cevirir. % (MaxCapacity + 1): Sonucu 0 ile MaxCapacity arasinda sinirlandirir. Boylece her mekan icin kapasitesiyle orantili rastgele doluluk degerleri uretilir.
+
+CROSS JOIN (SELECT TOP 96 ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) - 1 AS n FROM sys.columns) n
+
+sys.columns: SQL Server'in ic sistem tablosu; satir kaynagi olarak kullanilir. TOP 96: 48 saat * 2 (30dk bir) = 96 dilim. ROW_NUMBER() - 1: 0'dan 95'e kadar sayi uretir. CROSS JOIN: Her sensor icin 96 satir uretilir.
+ 
+8. Tablo Iliskileri (Entity-Relationship)
+
+Asagida tablolar arasi iliskiler ve kardinaliteleri ozetlenmistir:
+
+Iliski	Tip	Aciklama
+Users — UserRoles — Roles	M:N	Bir kullanicinin birden fazla rolu olabilir; bir rol birden fazla kullaniciya atanabilir.
+Zones — Zones (self)	1:N	Bir bolge (parent) birden fazla alt bolge (child) icerebilir.
+Zones — Facilities	1:N	Bir bolgede birden fazla mekan olabilir.
+FacilityTypes — Facilities	1:N	Bir tur birden fazla mekana atanabilir.
+Facilities — Sensors	1:N	Bir mekanda birden fazla sensor olabilir.
+Sensors — OccupancyLogs	1:N	Bir sensor zamanla binlerce log satirı uretir.
+Facilities — Reservations	1:N	Bir mekan birden fazla rezervasyon alabilir (farkli zamanlarda).
+Users — Reservations	1:N	Bir kullanici birden fazla rezervasyon yapabilir.
+Statuses — Reservations	1:N	Bir durum birden fazla rezervasyona atanabilir.
+Reservations — ReservationAttendees — Users	M:N	Bir rezervasyona birden fazla katilimci; bir kullanici birden fazla rezervasyona katilabilir.
+Reservations — ReservationAuditLog	1:N	Bir rezervasyonun birden fazla durum degisikligi logu olabilir.
+Users — UserPenalties	1:N	Bir kullanicinin birden fazla ceza kaydı olabilir.
+ 
+9. Script'i Nasil Calistirirsiniz?
+
+1. SQL Server Management Studio (SSMS) acin.
+2. File > Open > File... ile SmartCampusDB_Final.sql dosyasini secin.
+3. F5 veya Execute butonuna basin.
+4. Script once varsa eski SmartCampusDB'yi siler, yeniden olusturur. Tum tablolar, view'lar, trigger'lar ve ornek veri tek parcada yuklenir.
+
+Onemli: Script her calistirildığinda veritabani bastan olusturulur. Icindeki veriler silinir. Gelistirme ve demo amaclidir; production ortamda DROP DATABASE satiri kaldirilmalidir.
+
+Stored Procedure'leri Test Etmek
+
+EXEC sp_GetLiveHeatmap;
+EXEC sp_GetNoShowReport;
+EXEC sp_GetPeakHours @FacilityID = 1;
+EXEC sp_GetWeeklyTrend @FacilityID = 1;
+EXEC sp_GetWeeklyUtilisationPivot;
+EXEC sp_GetZoneHierarchy;
+EXEC sp_FindFreeSlots @FacilityID = 3, @Date = CAST(GETDATE() AS DATE);
+EXEC sp_SuggestAlternatives @TypeID = 3, @Start = GETDATE(), @End = DATEADD(HOUR,2,GETDATE());
+EXEC sp_GetUsageByRole;
+
+View'lari Test Etmek
+
+SELECT * FROM vw_LiveOccupancy ORDER BY OccupancyPct DESC;
+SELECT * FROM vw_TodayReservations;
+
+Trigger'i Test Etmek
+
+UPDATE Reservations SET StatusID = 4 WHERE ReservationID = 1;
+SELECT * FROM ReservationAuditLog;
+SELECT * FROM UserPenalties;
+ 
+10. Kullanilan Ileri SQL Teknikleri Ozeti
+
+Teknik	Kullanildigi Yer	Amaci
+PERSISTED Computed Column	Users.FullName	FirstName+LastName her sorguda tekrar hesaplanmaz, fiziksel olarak saklanir.
+Self-Referencing FK	Zones.ParentZoneID	Hiyerarsik bolge yapisi; tek tabloda agac modeli.
+Filtered Index	IX_Users_Email_Active	Sadece aktif kullanicilar indexte; daha kucuk, daha hizli.
+Covering Index (INCLUDE)	IX_OccupancyLogs_Sensor_Time	CurrentCount indexte tasinir; ana tabloya lookup olmaz.
+CTE (WITH)	Tum SP'ler ve View'lar	Girintili, okunakli alt sorgu tanimi; kod tekrarini onler.
+ROW_NUMBER() OVER PARTITION BY	vw_LiveOccupancy, SP-01, SP-03	Her grup icinde numara verir; en yeni kaydi bulmak icin kullanilir.
+DENSE_RANK() OVER PARTITION BY	SP-01 (Heatmap), SP-05 (Peak)	Esit degerlerden bosluksuz siralama uretir.
+PERCENT_RANK() OVER	SP-02 (No-Show)	0-100 aralik percentile skoru hesaplar.
+LAG() / LEAD() OVER	SP-05, SP-06	Onceki/sonraki satir degerine bakarak trend hesaplar.
+AVG() OVER ROWS UNBOUNDED PRECEDING	SP-05	Kumulatif (birikimli) ortalama.
+AVG() OVER ROWS BETWEEN 2 PRECEDING	SP-06	3 gunluk kayan ortalama.
+GROUP BY ROLLUP	SP-04 (Usage by Role)	Otomatik ara toplam ve genel toplam satirlari uretir.
+PIVOT	SP-07	Satir degerlerini sutuna cevirer; capraz tablo raporu.
+Recursive CTE	SP-08 (Zone Hierarchy), SP-09 (Free Slots)	Hiyerarsik veri gezme ve slot uretimi.
+INSTEAD OF Trigger	trg_BlockSuspendedUser	INSERT islemini ele gececer; kosul saglanamazsa iptal eder.
+AFTER Trigger	trg_AuditStatusChange, trg_AutoNoShowPenalty	INSERT/UPDATE sonrasi ek is mantigi calistirir.
+inserted / deleted Sanal Tablolari	Tum Trigger'lar	Trigger icinde eski ve yeni veri degerlerine erisim saglar.
+Multi Result Set SP	SP-10 (Dashboard)	Tek EXEC cagrisiyla 4 farkli SELECT sonucu doner.
+NOT EXISTS (subquery)	SP-09 (Free Slots)	Cakisma kontrolu; LEFT JOIN + NULL'dan daha okunakli.
+
+
+BIM216 – Smart Campus Management System | Database Documentation
+v2.1 Final  |  T-SQL / Microsoft SQL Server
+
+
+
+IF DB_ID('SmartCampusDB') IS NOT NULL
+    DROP DATABASE SmartCampusDB;
+GO
+
+CREATE DATABASE SmartCampusDB COLLATE Turkish_CI_AS;
+GO
+
+USE SmartCampusDB;
+GO
+
+CREATE TABLE Roles (
+    RoleID   INT          IDENTITY(1,1) PRIMARY KEY,
+    RoleName NVARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE FacilityTypes (
+    TypeID   INT           IDENTITY(1,1) PRIMARY KEY,
+    TypeName NVARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE Statuses (
+    StatusID   INT          IDENTITY(1,1) PRIMARY KEY,
+    StatusName NVARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE Users (
+    UserID       INT           IDENTITY(1,1) PRIMARY KEY,
+    FirstName    NVARCHAR(50)  NOT NULL,
+    LastName     NVARCHAR(50)  NOT NULL,
+    Email        NVARCHAR(150) NOT NULL UNIQUE,
+    PasswordHash NVARCHAR(256) NOT NULL,
+    CreatedAt    DATETIME      NOT NULL DEFAULT GETDATE(),
+    IsActive     BIT           NOT NULL DEFAULT 1,
+    FullName     AS (FirstName + N' ' + LastName) PERSISTED
+);
+
+CREATE TABLE UserRoles (
+    UserID INT NOT NULL REFERENCES Users(UserID) ON DELETE CASCADE,
+    RoleID INT NOT NULL REFERENCES Roles(RoleID) ON DELETE CASCADE,
+    PRIMARY KEY (UserID, RoleID)
+);
+
+CREATE TABLE Zones (
+    ZoneID       INT           IDENTITY(1,1) PRIMARY KEY,
+    ZoneName     NVARCHAR(100) NOT NULL UNIQUE,
+    Building     NVARCHAR(100) NULL,
+    FloorNo      SMALLINT      NULL,
+    ParentZoneID INT           NULL REFERENCES Zones(ZoneID)
+);
+
+CREATE TABLE Facilities (
+    FacilityID    INT           IDENTITY(1,1) PRIMARY KEY,
+    ZoneID        INT           NOT NULL REFERENCES Zones(ZoneID),
+    TypeID        INT           NOT NULL REFERENCES FacilityTypes(TypeID),
+    FacilityName  NVARCHAR(150) NOT NULL,
+    MaxCapacity   INT           NOT NULL CHECK (MaxCapacity > 0),
+    IsReservable  BIT           NOT NULL DEFAULT 1,
+    IsOperational BIT           NOT NULL DEFAULT 1,
+    OpenTime      TIME          NOT NULL DEFAULT '08:00',
+    CloseTime     TIME          NOT NULL DEFAULT '22:00',
+    CONSTRAINT chk_OperatingHours CHECK (CloseTime > OpenTime)
+);
+
+CREATE TABLE Sensors (
+    SensorID    INT          IDENTITY(1,1) PRIMARY KEY,
+    FacilityID  INT          NOT NULL REFERENCES Facilities(FacilityID) ON DELETE CASCADE,
+    SensorMac   NVARCHAR(17) NOT NULL UNIQUE,
+    InstalledAt DATE         NOT NULL DEFAULT CAST(GETDATE() AS DATE),
+    IsActive    BIT          NOT NULL DEFAULT 1
+);
+
+CREATE TABLE OccupancyLogs (
+    LogID        BIGINT   IDENTITY(1,1) PRIMARY KEY,
+    SensorID     INT      NOT NULL REFERENCES Sensors(SensorID) ON DELETE CASCADE,
+    LoggedAt     DATETIME NOT NULL DEFAULT GETDATE(),
+    CurrentCount INT      NOT NULL CHECK (CurrentCount >= 0)
+);
+
+CREATE TABLE Reservations (
+    ReservationID   BIGINT   IDENTITY(1,1) PRIMARY KEY,
+    FacilityID      INT      NOT NULL REFERENCES Facilities(FacilityID),
+    OrganizerUserID INT      NOT NULL REFERENCES Users(UserID),
+    StatusID        INT      NOT NULL REFERENCES Statuses(StatusID),
+    StartTime       DATETIME NOT NULL,
+    EndTime         DATETIME NOT NULL,
+    CreatedAt       DATETIME NOT NULL DEFAULT GETDATE(),
+    CancelledAt     DATETIME NULL,
+    CONSTRAINT chk_ReservationTime   CHECK (EndTime > StartTime),
+    CONSTRAINT chk_CancellationLogic CHECK (CancelledAt IS NULL OR CancelledAt >= CreatedAt)
+);
+
+CREATE TABLE ReservationAttendees (
+    ReservationID BIGINT   NOT NULL REFERENCES Reservations(ReservationID) ON DELETE CASCADE,
+    UserID        INT      NOT NULL REFERENCES Users(UserID),
+    IsAttended    BIT      NOT NULL DEFAULT 0,
+    CheckedInAt   DATETIME NULL,
+    PRIMARY KEY (ReservationID, UserID),
+    CONSTRAINT chk_CheckIn CHECK (CheckedInAt IS NULL OR IsAttended = 1)
+);
+
+CREATE TABLE ReservationAuditLog (
+    AuditID       BIGINT        IDENTITY(1,1) PRIMARY KEY,
+    ReservationID BIGINT        NOT NULL,
+    OldStatusID   INT           NULL,
+    NewStatusID   INT           NULL,
+    ChangedAt     DATETIME      NOT NULL DEFAULT GETDATE()
+);
+
+CREATE TABLE UserPenalties (
+    PenaltyID     INT      IDENTITY(1,1) PRIMARY KEY,
+    UserID        INT      NOT NULL REFERENCES Users(UserID),
+    ReservationID BIGINT   NOT NULL REFERENCES Reservations(ReservationID),
+    PenaltyPoints SMALLINT NOT NULL DEFAULT 1,
+    IssuedAt      DATETIME NOT NULL DEFAULT GETDATE(),
+    ExpiresAt     DATETIME NOT NULL,
+    IsActive      BIT      NOT NULL DEFAULT 1
+);
+GO
+
+CREATE NONCLUSTERED INDEX IX_OccupancyLogs_Sensor_Time
+    ON OccupancyLogs (SensorID, LoggedAt DESC)
+    INCLUDE (CurrentCount);
+
+CREATE NONCLUSTERED INDEX IX_Reservations_Facility_Time
+    ON Reservations (FacilityID, StartTime, EndTime)
+    INCLUDE (StatusID);
+
+CREATE UNIQUE NONCLUSTERED INDEX IX_Users_Email_Active
+    ON Users (Email)
+    WHERE IsActive = 1;
+GO
+
+CREATE VIEW vw_LiveOccupancy
+AS
+WITH LatestPerSensor AS (
+    SELECT
+        SensorID,
+        CurrentCount,
+        LoggedAt,
+        ROW_NUMBER() OVER (PARTITION BY SensorID ORDER BY LoggedAt DESC) AS rn
+    FROM OccupancyLogs
+)
+SELECT
+    f.FacilityID,
+    f.FacilityName,
+    z.ZoneName,
+    ft.TypeName                                                              AS FacilityType,
+    f.MaxCapacity,
+    ISNULL(l.CurrentCount, 0)                                               AS LiveCount,
+    CAST(ISNULL(l.CurrentCount, 0) * 100.0 / f.MaxCapacity AS DECIMAL(5,2)) AS OccupancyPct,
+    l.LoggedAt                                                               AS LastUpdated,
+    CASE WHEN ISNULL(l.CurrentCount,0) > f.MaxCapacity
+         THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END                        AS IsOverCapacity,
+    CASE
+        WHEN ISNULL(l.CurrentCount,0) = 0                          THEN N'Empty'
+        WHEN ISNULL(l.CurrentCount,0) * 1.0 / f.MaxCapacity < 0.5 THEN N'Low'
+        WHEN ISNULL(l.CurrentCount,0) * 1.0 / f.MaxCapacity < 0.8 THEN N'Moderate'
+        WHEN ISNULL(l.CurrentCount,0) * 1.0 / f.MaxCapacity < 1.0 THEN N'High'
+        ELSE N'Over Capacity'
+    END                                                                      AS CrowdLevel
+FROM Facilities    f
+JOIN Zones         z  ON f.ZoneID     = z.ZoneID
+JOIN FacilityTypes ft ON f.TypeID     = ft.TypeID
+JOIN Sensors       s  ON f.FacilityID = s.FacilityID
+LEFT JOIN LatestPerSensor l ON s.SensorID = l.SensorID AND l.rn = 1
+WHERE f.IsOperational = 1;
+GO
+
+CREATE VIEW vw_TodayReservations
+AS
+SELECT
+    r.ReservationID,
+    f.FacilityName,
+    u.FullName                                   AS Organizer,
+    st.StatusName,
+    r.StartTime,
+    r.EndTime,
+    DATEDIFF(MINUTE, r.StartTime, r.EndTime)     AS DurationMin,
+    COUNT(ra.UserID)                             AS AttendeeCount
+FROM Reservations              r
+JOIN Facilities                f  ON r.FacilityID      = f.FacilityID
+JOIN Users                     u  ON r.OrganizerUserID = u.UserID
+JOIN Statuses                  st ON r.StatusID        = st.StatusID
+LEFT JOIN ReservationAttendees ra ON r.ReservationID   = ra.ReservationID
+WHERE CAST(r.StartTime AS DATE) = CAST(GETDATE() AS DATE)
+GROUP BY r.ReservationID, f.FacilityName, u.FullName, st.StatusName, r.StartTime, r.EndTime;
+GO
+
+CREATE TRIGGER trg_AuditStatusChange
+ON Reservations
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    INSERT INTO ReservationAuditLog (ReservationID, OldStatusID, NewStatusID, ChangedAt)
+    SELECT i.ReservationID, d.StatusID, i.StatusID, GETDATE()
+    FROM inserted i
+    JOIN deleted  d ON i.ReservationID = d.ReservationID
+    WHERE i.StatusID <> d.StatusID;
+END;
+GO
+
+CREATE TRIGGER trg_AutoNoShowPenalty
+ON Reservations
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF NOT EXISTS (
+        SELECT 1 FROM inserted i
+        JOIN deleted  d ON i.ReservationID = d.ReservationID
+        JOIN Statuses s ON i.StatusID      = s.StatusID
+        WHERE s.StatusName = N'Completed' AND i.StatusID <> d.StatusID
+    ) RETURN;
+
+    INSERT INTO UserPenalties (UserID, ReservationID, PenaltyPoints, ExpiresAt)
+    SELECT ra.UserID, ra.ReservationID, 1, DATEADD(DAY, 30, GETDATE())
+    FROM ReservationAttendees ra
+    JOIN inserted             i ON ra.ReservationID = i.ReservationID
+    WHERE ra.IsAttended = 0;
+END;
+GO
+
+CREATE TRIGGER trg_BlockSuspendedUser
+ON Reservations
+INSTEAD OF INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF EXISTS (
+        SELECT 1 FROM inserted i
+        JOIN UserPenalties up ON i.OrganizerUserID = up.UserID
+        WHERE up.IsActive = 1
+        GROUP BY i.OrganizerUserID
+        HAVING COUNT(*) >= 3
+    )
+    BEGIN
+        RAISERROR(N'User is blocked due to repeated no-shows.', 16, 1);
+        RETURN;
+    END;
+    INSERT INTO Reservations (FacilityID, OrganizerUserID, StatusID, StartTime, EndTime, CreatedAt)
+    SELECT FacilityID, OrganizerUserID, StatusID, StartTime, EndTime, GETDATE()
+    FROM inserted;
+END;
+GO
+
+CREATE PROCEDURE sp_GetLiveHeatmap
+AS
+BEGIN
+    SET NOCOUNT ON;
+    WITH OccupancyBase AS (
+        SELECT
+            f.FacilityID, f.FacilityName, z.ZoneName, ft.TypeName AS FacilityType,
+            f.MaxCapacity,
+            ISNULL(l.CurrentCount, 0) AS LiveCount,
+            CAST(ISNULL(l.CurrentCount,0) * 100.0 / f.MaxCapacity AS DECIMAL(5,2)) AS OccupancyPct
+        FROM Facilities f
+        JOIN Zones         z  ON f.ZoneID     = z.ZoneID
+        JOIN FacilityTypes ft ON f.TypeID     = ft.TypeID
+        JOIN Sensors       s  ON f.FacilityID = s.FacilityID
+        LEFT JOIN (
+            SELECT SensorID, CurrentCount,
+                   ROW_NUMBER() OVER (PARTITION BY SensorID ORDER BY LoggedAt DESC) AS rn
+            FROM OccupancyLogs
+        ) l ON s.SensorID = l.SensorID AND l.rn = 1
+        WHERE f.IsOperational = 1
+    )
+    SELECT
+        FacilityID, FacilityName, ZoneName, FacilityType, MaxCapacity, LiveCount, OccupancyPct,
+        DENSE_RANK() OVER (PARTITION BY ZoneName ORDER BY OccupancyPct DESC) AS ZoneRank,
+        SUM(LiveCount)    OVER (PARTITION BY ZoneName)                        AS ZoneTotalPeople,
+        AVG(OccupancyPct) OVER (PARTITION BY ZoneName)                        AS ZoneAvgOccupancyPct,
+        OccupancyPct - AVG(OccupancyPct) OVER (PARTITION BY ZoneName)        AS DiffFromZoneAvg
+    FROM OccupancyBase
+    ORDER BY ZoneName, ZoneRank;
+END;
+GO
+
+CREATE PROCEDURE sp_GetNoShowReport
+AS
+BEGIN
+    SET NOCOUNT ON;
+    WITH Stats AS (
+        SELECT
+            u.UserID, u.FullName,
+            COUNT(ra.ReservationID)                             AS TotalBookings,
+            SUM(CASE WHEN ra.IsAttended = 0 THEN 1 ELSE 0 END) AS MissedCount,
+            SUM(CASE WHEN ra.IsAttended = 1 THEN 1 ELSE 0 END) AS AttendedCount
+        FROM Users u
+        JOIN ReservationAttendees ra ON u.UserID = ra.UserID
+        GROUP BY u.UserID, u.FullName
+        HAVING COUNT(ra.ReservationID) >= 3
+    )
+    SELECT
+        UserID, FullName, TotalBookings, AttendedCount, MissedCount,
+        CAST(MissedCount * 100.0 / TotalBookings AS DECIMAL(5,2)) AS NoShowRate,
+        CAST(PERCENT_RANK() OVER (ORDER BY MissedCount * 1.0 / TotalBookings) * 100 AS DECIMAL(5,2)) AS NoShowPercentile,
+        CASE
+            WHEN MissedCount * 1.0 / TotalBookings >= 0.5  THEN N'High Risk'
+            WHEN MissedCount * 1.0 / TotalBookings >= 0.25 THEN N'Moderate Risk'
+            ELSE N'Good Standing'
+        END AS RiskLabel
+    FROM Stats
+    ORDER BY NoShowRate DESC;
+END;
+GO
+
+CREATE PROCEDURE sp_SuggestAlternatives
+    @TypeID INT, @Start DATETIME, @End DATETIME
+AS
+BEGIN
+    SET NOCOUNT ON;
+    DECLARE @ApprovedID INT = (SELECT StatusID FROM Statuses WHERE StatusName = N'Approved');
+    WITH Conflicts AS (
+        SELECT DISTINCT FacilityID FROM Reservations
+        WHERE StatusID = @ApprovedID AND StartTime < @End AND EndTime > @Start
+    ),
+    LatestOccupancy AS (
+        SELECT s.FacilityID, l.CurrentCount
+        FROM Sensors s
+        JOIN (
+            SELECT SensorID, CurrentCount,
+                   ROW_NUMBER() OVER (PARTITION BY SensorID ORDER BY LoggedAt DESC) AS rn
+            FROM OccupancyLogs
+        ) l ON s.SensorID = l.SensorID AND l.rn = 1
+    )
+    SELECT
+        f.FacilityID, f.FacilityName, z.ZoneName, f.MaxCapacity,
+        ISNULL(lo.CurrentCount, 0) AS CurrentOccupancy,
+        CAST(ISNULL(lo.CurrentCount,0) * 100.0 / f.MaxCapacity AS DECIMAL(5,2)) AS OccupancyPct,
+        RANK() OVER (ORDER BY ISNULL(lo.CurrentCount,0) ASC) AS SuggestionRank
+    FROM Facilities f
+    JOIN Zones z ON f.ZoneID = z.ZoneID
+    LEFT JOIN LatestOccupancy lo ON f.FacilityID = lo.FacilityID
+    WHERE f.TypeID = @TypeID AND f.IsReservable = 1 AND f.IsOperational = 1
+      AND f.FacilityID NOT IN (SELECT FacilityID FROM Conflicts)
+    ORDER BY SuggestionRank;
+END;
+GO
+
+CREATE PROCEDURE sp_GetUsageByRole
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT
+        ISNULL(ro.RoleName, N'ALL ROLES') AS RoleName,
+        ISNULL(ft.TypeName, N'ALL TYPES') AS FacilityType,
+        COUNT(r.ReservationID)            AS TotalBookings,
+        SUM(DATEDIFF(MINUTE, r.StartTime, r.EndTime)) / 60.0 AS TotalReservedHours,
+        AVG(DATEDIFF(MINUTE, r.StartTime, r.EndTime))         AS AvgDurationMin
+    FROM Roles ro
+    JOIN UserRoles     ur ON ro.RoleID    = ur.RoleID
+    JOIN Users         u  ON ur.UserID   = u.UserID
+    JOIN Reservations  r  ON u.UserID    = r.OrganizerUserID
+    JOIN Facilities    f  ON r.FacilityID = f.FacilityID
+    JOIN FacilityTypes ft ON f.TypeID    = ft.TypeID
+    GROUP BY ROLLUP(ro.RoleName, ft.TypeName)
+    ORDER BY ro.RoleName, ft.TypeName;
+END;
+GO
+
+CREATE PROCEDURE sp_GetPeakHours
+    @FacilityID INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    WITH HourlyAvg AS (
+        SELECT
+            DATEPART(HOUR, l.LoggedAt) AS HourOfDay,
+            AVG(l.CurrentCount)        AS AvgOccupancy,
+            MAX(l.CurrentCount)        AS PeakOccupancy,
+            COUNT(*)                   AS SampleCount
+        FROM OccupancyLogs l
+        JOIN Sensors s ON l.SensorID = s.SensorID
+        WHERE s.FacilityID = @FacilityID
+        GROUP BY DATEPART(HOUR, l.LoggedAt)
+    )
+    SELECT
+        HourOfDay, AvgOccupancy, PeakOccupancy, SampleCount,
+        AvgOccupancy - LAG(AvgOccupancy, 1, AvgOccupancy)
+            OVER (ORDER BY HourOfDay)                           AS DeltaFromPrevHour,
+        LEAD(AvgOccupancy, 1, AvgOccupancy)
+            OVER (ORDER BY HourOfDay) - AvgOccupancy           AS DeltaToNextHour,
+        AVG(CAST(AvgOccupancy AS FLOAT))
+            OVER (ORDER BY HourOfDay ROWS UNBOUNDED PRECEDING) AS RunningDayAvg,
+        DENSE_RANK() OVER (ORDER BY AvgOccupancy DESC)         AS BusiestRank
+    FROM HourlyAvg
+    ORDER BY HourOfDay;
+END;
+GO
+
+CREATE PROCEDURE sp_GetWeeklyTrend
+    @FacilityID INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    WITH DailyAvg AS (
+        SELECT
+            CAST(l.LoggedAt AS DATE) AS LogDate,
+            AVG(l.CurrentCount)      AS DailyAvg,
+            MAX(l.CurrentCount)      AS DailyPeak
+        FROM OccupancyLogs l
+        JOIN Sensors s ON l.SensorID = s.SensorID
+        WHERE s.FacilityID = @FacilityID
+          AND l.LoggedAt  >= DATEADD(DAY, -7, CAST(GETDATE() AS DATE))
+        GROUP BY CAST(l.LoggedAt AS DATE)
+    )
+    SELECT
+        LogDate, DailyAvg, DailyPeak,
+        AVG(CAST(DailyAvg AS FLOAT))
+            OVER (ORDER BY LogDate ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS MovingAvg3Day,
+        DailyAvg - LAG(DailyAvg, 1, DailyAvg) OVER (ORDER BY LogDate)       AS DayOverDayDelta
+    FROM DailyAvg
+    ORDER BY LogDate;
+END;
+GO
+
+CREATE PROCEDURE sp_GetWeeklyUtilisationPivot
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT *
+    FROM (
+        SELECT
+            f.FacilityName,
+            DATENAME(WEEKDAY, l.LoggedAt) AS DayName,
+            CAST(l.CurrentCount * 100.0 / f.MaxCapacity AS DECIMAL(5,2)) AS OccupancyPct
+        FROM OccupancyLogs l
+        JOIN Sensors    s ON l.SensorID   = s.SensorID
+        JOIN Facilities f ON s.FacilityID = f.FacilityID
+    ) AS Src
+    PIVOT (
+        AVG(OccupancyPct)
+        FOR DayName IN ([Monday],[Tuesday],[Wednesday],[Thursday],[Friday],[Saturday],[Sunday])
+    ) AS Pvt
+    ORDER BY FacilityName;
+END;
+GO
+
+CREATE PROCEDURE sp_GetZoneHierarchy
+    @RootZoneID INT = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+    WITH ZoneTree AS (
+        SELECT ZoneID, ZoneName, ParentZoneID, 0 AS Depth,
+               CAST(ZoneName AS NVARCHAR(500)) AS ZonePath
+        FROM Zones
+        WHERE (@RootZoneID IS NULL AND ParentZoneID IS NULL) OR ZoneID = @RootZoneID
+
+        UNION ALL
+
+        SELECT z.ZoneID, z.ZoneName, z.ParentZoneID, zt.Depth + 1,
+               CAST(zt.ZonePath + N' > ' + z.ZoneName AS NVARCHAR(500))
+        FROM Zones z
+        JOIN ZoneTree zt ON z.ParentZoneID = zt.ZoneID
+    )
+    SELECT
+        zt.ZoneID,
+        REPLICATE(N'    ', zt.Depth) + zt.ZoneName AS IndentedName,
+        zt.ZonePath, zt.Depth,
+        COUNT(f.FacilityID)         AS FacilityCount,
+        ISNULL(SUM(f.MaxCapacity), 0) AS TotalCapacity
+    FROM ZoneTree zt
+    LEFT JOIN Facilities f ON zt.ZoneID = f.ZoneID
+    GROUP BY zt.ZoneID, zt.ZoneName, zt.ZonePath, zt.Depth
+    ORDER BY zt.ZonePath;
+END;
+GO
+
+CREATE PROCEDURE sp_FindFreeSlots
+    @FacilityID INT, @Date DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    DECLARE @OpenDT DATETIME, @CloseDT DATETIME, @ApprovedID INT;
+
+    SELECT @OpenDT  = CAST(@Date AS DATETIME) + CAST(OpenTime  AS DATETIME),
+           @CloseDT = CAST(@Date AS DATETIME) + CAST(CloseTime AS DATETIME)
+    FROM Facilities WHERE FacilityID = @FacilityID;
+
+    SELECT @ApprovedID = StatusID FROM Statuses WHERE StatusName = N'Approved';
+
+    WITH Slots AS (
+        SELECT @OpenDT AS SlotStart, DATEADD(HOUR,1,@OpenDT) AS SlotEnd
+        UNION ALL
+        SELECT DATEADD(HOUR,1,SlotStart), DATEADD(HOUR,1,SlotEnd)
+        FROM Slots WHERE DATEADD(HOUR,1,SlotEnd) <= @CloseDT
+    )
+    SELECT sl.SlotStart, sl.SlotEnd, N'Available' AS Availability
+    FROM Slots sl
+    WHERE NOT EXISTS (
+        SELECT 1 FROM Reservations r
+        WHERE r.FacilityID = @FacilityID AND r.StatusID = @ApprovedID
+          AND r.StartTime < sl.SlotEnd AND r.EndTime > sl.SlotStart
+    )
+    OPTION (MAXRECURSION 100);
+END;
+GO
+
+CREATE PROCEDURE sp_GetUserDashboard
+    @UserID INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT r.ReservationID, f.FacilityName, r.StartTime, r.EndTime, st.StatusName
+    FROM Reservations r
+    JOIN Facilities f  ON r.FacilityID = f.FacilityID
+    JOIN Statuses   st ON r.StatusID   = st.StatusID
+    WHERE r.OrganizerUserID = @UserID AND r.StartTime > GETDATE()
+    ORDER BY r.StartTime;
+
+    SELECT
+        COUNT(*) AS TotalBookings,
+        SUM(CASE WHEN ra.IsAttended = 1 THEN 1 ELSE 0 END) AS Attended,
+        SUM(CASE WHEN ra.IsAttended = 0 THEN 1 ELSE 0 END) AS Missed,
+        CAST(SUM(CASE WHEN ra.IsAttended = 1 THEN 1.0 ELSE 0 END) / NULLIF(COUNT(*),0) * 100 AS DECIMAL(5,2)) AS AttendanceRate
+    FROM ReservationAttendees ra WHERE ra.UserID = @UserID;
+
+    SELECT COUNT(*) AS ActivePenalties, SUM(PenaltyPoints) AS TotalPoints, MIN(ExpiresAt) AS EarliestExpiry
+    FROM UserPenalties WHERE UserID = @UserID AND IsActive = 1;
+
+    SELECT TOP 3 FacilityName, ZoneName, OccupancyPct, CrowdLevel
+    FROM vw_LiveOccupancy ORDER BY OccupancyPct ASC;
+END;
+GO
+
+INSERT INTO Roles       (RoleName)  VALUES (N'Student'),(N'Staff'),(N'EventOrganizer'),(N'Admin');
+INSERT INTO FacilityTypes (TypeName) VALUES (N'Library'),(N'Cafeteria'),(N'StudyRoom'),(N'EventHall'),(N'Lab');
+INSERT INTO Statuses    (StatusName) VALUES (N'Pending'),(N'Approved'),(N'Cancelled'),(N'Completed');
+
+INSERT INTO Zones (ZoneName, Building, FloorNo, ParentZoneID) VALUES
+    (N'A Block',        N'A Block', NULL, NULL),
+    (N'A Block Ground', N'A Block', 0,    1),
+    (N'A Block First',  N'A Block', 1,    1),
+    (N'B Block',        N'B Block', NULL, NULL),
+    (N'B Block Ground', N'B Block', 0,    4);
+
+INSERT INTO Facilities (ZoneID, TypeID, FacilityName, MaxCapacity, IsReservable, OpenTime, CloseTime) VALUES
+    (2, 1, N'Central Library',  200, 0, '08:00', '22:00'),
+    (2, 2, N'Main Cafeteria',   300, 0, '07:30', '20:00'),
+    (3, 3, N'Study Room A',      10, 1, '09:00', '21:00'),
+    (3, 3, N'Study Room B',      10, 1, '09:00', '21:00'),
+    (3, 4, N'Conference Hall',  150, 1, '08:00', '22:00'),
+    (5, 5, N'Computer Lab 1',    40, 1, '09:00', '18:00');
+
+INSERT INTO Users (FirstName, LastName, Email, PasswordHash) VALUES
+    (N'Ayse',   N'Kaya',   N'ayse@uni.edu',   N'$2a$10$hash1'),
+    (N'Mehmet', N'Demir',  N'mehmet@uni.edu', N'$2a$10$hash2'),
+    (N'Zeynep', N'Celik',  N'zeynep@uni.edu', N'$2a$10$hash3'),
+    (N'Ali',    N'Yilmaz', N'ali@uni.edu',    N'$2a$10$hash4');
+
+INSERT INTO UserRoles (UserID, RoleID) VALUES (1,1),(2,1),(3,2),(4,4);
+
+INSERT INTO Sensors (FacilityID, SensorMac) VALUES
+    (1, N'AA:BB:CC:DD:EE:01'),(2, N'AA:BB:CC:DD:EE:02'),
+    (3, N'AA:BB:CC:DD:EE:03'),(4, N'AA:BB:CC:DD:EE:04'),
+    (5, N'AA:BB:CC:DD:EE:05'),(6, N'AA:BB:CC:DD:EE:06');
+
+INSERT INTO OccupancyLogs (SensorID, LoggedAt, CurrentCount)
+SELECT s.SensorID,
+       DATEADD(MINUTE, n.n * 30, DATEADD(DAY, -2, CAST(CAST(GETDATE() AS DATE) AS DATETIME))),
+       ABS(CHECKSUM(NEWID())) % (f.MaxCapacity + 1)
+FROM Sensors s
+JOIN Facilities f ON s.FacilityID = f.FacilityID
+CROSS JOIN (SELECT TOP 96 ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) - 1 AS n FROM sys.columns) n;
+
+INSERT INTO Reservations (FacilityID, OrganizerUserID, StatusID, StartTime, EndTime)
+VALUES (3, 1, 2, DATEADD(HOUR,2,GETDATE()), DATEADD(HOUR,3,GETDATE()));
+
+INSERT INTO ReservationAttendees (ReservationID, UserID) VALUES (1,1),(1,2);
+
+INSERT INTO OccupancyLogs (SensorID, LoggedAt, CurrentCount)
+SELECT SensorID, DATEADD(MINUTE, n * 5, DATEADD(HOUR,-1,GETDATE())), 
+       ABS(CHECKSUM(NEWID())) % 201
+FROM Sensors
+CROSS JOIN (VALUES(0),(1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11)) AS t(n)
+WHERE FacilityID = 1;
+GO
+

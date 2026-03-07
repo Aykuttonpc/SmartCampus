@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SmartCampus – Kampüs Doluluk ve Rezervasyon Yönetim Sistemi" />
+    <title>@ViewData["Title"] – SmartCampus</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+<nav class="sidebar">
+    <div class="brand">
+        <span class="brand-icon">🏛️</span>
+        <span>SmartCampus</span>
+    </div>
+    <ul class="nav-links">
+        <li><a asp-controller="Home" asp-action="Index">📊 Dashboard</a></li>
+        <li><a asp-controller="Reservations" asp-action="Index">📅 Takvim</a></li>
+        @if (Context.Session.GetInt32("UserID") != null)
+        {
+            <li><a asp-controller="Account" asp-action="Profile">👤 Profilim</a></li>
+        }
+        @if ((Context.Session.GetString("Roles") ?? "").Contains("Admin"))
+        {
+            <li><a asp-controller="Admin" asp-action="Index">⚙️ Admin</a></li>
+            <li><a asp-controller="Admin" asp-action="Facilities">🏢 Mekanlar</a></li>
+        }
+    </ul>
+    <div class="sidebar-footer">
+        @if (Context.Session.GetInt32("UserID") != null)
+        {
+            <span class="user-name">@Context.Session.GetString("UserName")</span>
+            <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline">
+                <button class="btn-logout">Çıkış</button>
+            </form>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login" class="btn-login">Giriş Yap</a>
+        }
+    </div>
+</nav>
+<main class="content">
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-error">⚠️ @TempData["Error"]</div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">✅ @TempData["Success"]</div>
+    }
+    @RenderBody()
+</main>
+<script>
+    // Aktif nav linkini vurgula
+    const links = document.querySelectorAll('.nav-links a');
+    links.forEach(l => { if (l.href === location.href) l.classList.add('active'); });
+</script>
+</body>
+</html>
