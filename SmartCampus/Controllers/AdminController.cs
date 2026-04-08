@@ -9,18 +9,19 @@ public class AdminController(AdminService admin) : Controller
         (HttpContext.Session.GetString("Roles") ?? "").Contains("Admin");
 
     // GET /Admin
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int pageNumber = 1)
     {
         if (!IsAdmin()) return RedirectToAction("Login", "Account");
-        var report = await admin.GetNoShowReportAsync();
+        var reportList = await admin.GetNoShowReportAsync();
+        var report = SmartCampus.Models.PaginatedList<SmartCampus.Models.NoShowReportVm>.Create(reportList, pageNumber, 10);
         return View(report);
     }
 
     // GET /Admin/Facilities
-    public async Task<IActionResult> Facilities()
+    public async Task<IActionResult> Facilities(int pageNumber = 1)
     {
         if (!IsAdmin()) return RedirectToAction("Login", "Account");
-        var list = await admin.GetAllFacilitiesAsync();
+        var list = await admin.GetAllFacilitiesAsync(pageNumber, 10);
         return View(list);
     }
 
@@ -34,10 +35,10 @@ public class AdminController(AdminService admin) : Controller
     }
 
     // GET /Admin/Users
-    public async Task<IActionResult> Users()
+    public async Task<IActionResult> Users(int pageNumber = 1)
     {
         if (!IsAdmin()) return RedirectToAction("Login", "Account");
-        var list = await admin.GetAllUsersWithRolesAsync();
+        var list = await admin.GetAllUsersWithRolesAsync(pageNumber, 10);
         return View(list);
     }
 

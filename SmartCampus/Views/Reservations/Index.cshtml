@@ -1,4 +1,4 @@
-@model List<SmartCampus.Models.TodayReservationVm>
+@model SmartCampus.Models.PaginatedList<SmartCampus.Models.TodayReservationVm>
 @{ ViewData["Title"] = "Bugünün Takvimi"; }
 
 <div class="page-header">
@@ -60,5 +60,19 @@ else
             }
             </tbody>
         </table>
+    </div>
+
+    <div class="pagination-container" style="margin-top: 20px; text-align: center;">
+        @if (Model.HasPreviousPage)
+        {
+            <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-secondary">Önceki</a>
+        }
+        
+        <span style="margin: 0 15px;">Sayfa @Model.PageIndex / @Model.TotalPages</span>
+        
+        @if (Model.HasNextPage)
+        {
+            <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-primary">Sonraki</a>
+        }
     </div>
 }

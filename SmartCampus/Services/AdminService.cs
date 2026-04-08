@@ -9,8 +9,11 @@ public class AdminService(AppDbContext db, AdminDal dal)
 {
     public async Task<List<NoShowReportVm>> GetNoShowReportAsync() => await dal.GetNoShowReportAsync();
 
-    public async Task<List<Facility>> GetAllFacilitiesAsync() => 
-        await db.Facilities.Include(f => f.Zone).Include(f => f.FacilityType).OrderBy(f => f.FacilityName).ToListAsync();
+    public async Task<PaginatedList<Facility>> GetAllFacilitiesAsync(int pageIndex, int pageSize) 
+    {
+        var query = db.Facilities.Include(f => f.Zone).Include(f => f.FacilityType).OrderBy(f => f.FacilityName);
+        return await PaginatedList<Facility>.CreateAsync(query, pageIndex, pageSize);
+    }
 
     public async Task UpsertFacilityAsync(Facility f)
     {
@@ -21,7 +24,7 @@ public class AdminService(AppDbContext db, AdminDal dal)
 
     public async Task DeleteFacilityAsync(int id) => await dal.DeleteFacilityAsync(id);
 
-    public async Task<List<UserRoleVm>> GetAllUsersWithRolesAsync() => await dal.GetAllUsersWithRolesAsync();
+    public async Task<PaginatedList<UserRoleVm>> GetAllUsersWithRolesAsync(int pageIndex, int pageSize) => await dal.GetAllUsersWithRolesAsync(pageIndex, pageSize);
 
     public async Task UpdateUserRoleAsync(int userId, string newRoleName) => await dal.UpdateUserRoleAsync(userId, newRoleName);
 }

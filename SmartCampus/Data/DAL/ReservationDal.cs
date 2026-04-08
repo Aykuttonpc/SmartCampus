@@ -7,9 +7,9 @@ namespace SmartCampus.Data.DAL;
 
 public class ReservationDal(AppDbContext db)
 {
-    public async Task<List<TodayReservationVm>> GetTodayReservationsAsync()
+    public async Task<PaginatedList<TodayReservationVm>> GetTodayReservationsAsync(int pageIndex = 1, int pageSize = 10)
     {
-        return await db.Set<TodayReservationVm>().ToListAsync();
+        return await PaginatedList<TodayReservationVm>.CreateAsync(db.Set<TodayReservationVm>(), pageIndex, pageSize);
     }
 
     public async Task<List<FreeSlotVm>> GetFreeSlotsAsync(int facilityId, DateOnly date)

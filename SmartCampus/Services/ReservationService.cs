@@ -5,7 +5,7 @@ namespace SmartCampus.Services;
 
 public class ReservationService(ReservationDal dal)
 {
-    public async Task<List<TodayReservationVm>> GetTodayReservationsAsync() => await dal.GetTodayReservationsAsync();
+    public async Task<PaginatedList<TodayReservationVm>> GetTodayReservationsAsync(int pageIndex = 1, int pageSize = 10) => await dal.GetTodayReservationsAsync(pageIndex, pageSize);
 
     public async Task<List<FreeSlotVm>> GetFreeSlotsAsync(int facilityId, DateOnly date) => await dal.GetFreeSlotsAsync(facilityId, date);
 

@@ -9,10 +9,10 @@ public class ReservationsController(ReservationService res) : Controller
     private int? UserId => HttpContext.Session.GetInt32("UserID");
 
     // GET /Reservations  – Bugünün takvimi
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int pageNumber = 1)
     {
         if (UserId == null) return RedirectToAction("Login", "Account");
-        var list = await res.GetTodayReservationsAsync();
+        var list = await res.GetTodayReservationsAsync(pageNumber, 10);
         return View(list);
     }
 

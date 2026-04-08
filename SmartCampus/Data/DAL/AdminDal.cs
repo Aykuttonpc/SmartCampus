@@ -17,10 +17,10 @@ public class AdminDal(AppDbContext db)
         await db.Database.ExecuteSqlInterpolatedAsync($"DELETE FROM Facilities WHERE FacilityID = {id}");
     }
 
-    public async Task<List<UserRoleVm>> GetAllUsersWithRolesAsync()
+    public async Task<PaginatedList<UserRoleVm>> GetAllUsersWithRolesAsync(int pageIndex, int pageSize)
     {
         // Get all users and their single assigned role. (System assumes 1 role per user).
-        return await db.Users
+        var query = db.Users
             .Include(u => u.UserRoles).ThenInclude(ur => ur.Role)
             .OrderBy(u => u.FirstName)
             .Select(u => new UserRoleVm
@@ -29,8 +29,9 @@ public class AdminDal(AppDbContext db)
                 FullName = string.IsNullOrEmpty(u.FullName) ? u.FirstName + " " + u.LastName : u.FullName,
                 Email = u.Email,
                 RoleName = u.UserRoles.FirstOrDefault()!.Role.RoleName
-            })
-            .ToListAsync();
+            });
+            
+        return await PaginatedList<UserRoleVm>.CreateAsync(query, pageIndex, pageSize);
     }
 
     public async Task UpdateUserRoleAsync(int userId, string newRoleName)
