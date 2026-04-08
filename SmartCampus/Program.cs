@@ -19,7 +19,6 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<AdminService>();
 
 builder.Services.AddSignalR();
-builder.Services.AddHostedService<SensorSimulatorService>();
 
 builder.Services.AddSession(opt => { opt.IdleTimeout = TimeSpan.FromHours(2); });
 builder.Services.AddControllersWithViews();
