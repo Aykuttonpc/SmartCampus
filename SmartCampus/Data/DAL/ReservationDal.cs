@@ -26,9 +26,15 @@ public class ReservationDal(AppDbContext db)
 
     public async Task<List<FreeSlotVm>> GetFreeSlotsAsync(int facilityId, DateOnly date)
     {
-        return await db.Set<FreeSlotVm>()
+        var slots = await db.Set<FreeSlotVm>()
             .FromSqlInterpolated($"EXEC sp_FindFreeSlots {facilityId}, {date.ToString("yyyy-MM-dd")}")
             .ToListAsync();
+
+        // Bugünün geçmiş saatlerini filtrele
+        if (date == DateOnly.FromDateTime(DateTime.Today))
+            slots = slots.Where(s => s.SlotStart > DateTime.Now).ToList();
+
+        return slots;
     }
 
     public async Task<List<AlternativeVm>> GetAlternativesAsync(string typeName, DateTime start, DateTime end)
@@ -45,11 +51,23 @@ public class ReservationDal(AppDbContext db)
 
     public async Task<(bool ok, string error)> BookAsync(int facilityId, int userId, DateTime start, DateTime end)
     {
+        // Geçmiş saate rezervasyon engeli
+        if (start <= DateTime.Now)
+            return (false, "Geçmiş bir saate rezervasyon yapamazsınız.");
+
         try
         {
             var pendingId = await db.Statuses.Where(s => s.StatusName == "Pending").Select(s => s.StatusID).FirstAsync();
-            await db.Database.ExecuteSqlInterpolatedAsync(
-                $"INSERT INTO Reservations (FacilityID, OrganizerUserID, StatusID, StartTime, EndTime, CreatedAt) VALUES ({facilityId}, {userId}, {pendingId}, {start}, {end}, GETDATE())");
+
+            // Rezervasyonu oluştur ve organizatörü otomatik katılımcı olarak ekle
+            await db.Database.ExecuteSqlInterpolatedAsync($"""
+                DECLARE @NewID BIGINT;
+                INSERT INTO Reservations (FacilityID, OrganizerUserID, StatusID, StartTime, EndTime, CreatedAt)
+                VALUES ({facilityId}, {userId}, {pendingId}, {start}, {end}, GETDATE());
+                SET @NewID = SCOPE_IDENTITY();
+                INSERT INTO ReservationAttendees (ReservationID, UserID, IsAttended, CheckedInAt)
+                VALUES (@NewID, {userId}, 0, NULL);
+                """);
 
             return (true, "");
         }
