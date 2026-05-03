@@ -5,6 +5,22 @@
     <h1>👥 Kullanıcı Yönetimi</h1>
 </div>
 
+<div class="filter-wrap" style="margin-bottom: 20px;">
+    <form method="get" asp-action="Users" class="filter-form" style="display: flex; gap: 10px; align-items: center;">
+        <input type="text" name="searchString" placeholder="İsim veya E-posta ara..." value="@ViewBag.SearchString" class="form-control" style="max-width: 300px;" />
+        
+        <select name="roleFilter" class="form-select" style="max-width: 200px;">
+            @if(string.IsNullOrEmpty(ViewBag.RoleFilter)) { <option value="" selected>Tüm Roller</option> } else { <option value="">Tüm Roller</option> }
+            @if(ViewBag.RoleFilter == "Student") { <option value="Student" selected>Öğrenci</option> } else { <option value="Student">Öğrenci</option> }
+            @if(ViewBag.RoleFilter == "Staff") { <option value="Staff" selected>Personel</option> } else { <option value="Staff">Personel</option> }
+            @if(ViewBag.RoleFilter == "Admin") { <option value="Admin" selected>Yönetici</option> } else { <option value="Admin">Yönetici</option> }
+        </select>
+        
+        <button type="submit" class="btn btn-primary">Filtrele</button>
+        <a asp-action="Users" class="btn btn-secondary">Temizle</a>
+    </form>
+</div>
+
 <div class="table-wrap">
     <table class="data-table">
         <thead>
@@ -39,18 +55,18 @@
 <div class="pagination-container" style="margin-top: 20px; text-align: center;">
     @if (Model.HasPreviousPage)
     {
-        <a asp-action="Users" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-secondary">Önceki</a>
+        <a asp-action="Users" asp-route-pageNumber="@(Model.PageIndex - 1)" asp-route-searchString="@ViewBag.SearchString" asp-route-roleFilter="@ViewBag.RoleFilter" class="btn btn-secondary">Önceki</a>
     }
     
     <span style="margin: 0 15px;">Sayfa @Model.PageIndex / @Model.TotalPages</span>
     
     @if (Model.HasNextPage)
     {
-        <a asp-action="Users" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-primary">Sonraki</a>
+        <a asp-action="Users" asp-route-pageNumber="@(Model.PageIndex + 1)" asp-route-searchString="@ViewBag.SearchString" asp-route-roleFilter="@ViewBag.RoleFilter" class="btn btn-primary">Sonraki</a>
     }
 </div>
 
 <style>
 .inline-form { display: inline-block; margin: 0; }
-.form-select { padding: 4px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--card-bg); color: var(--text-base); }
+.form-select, .form-control { padding: 8px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--card-bg); color: var(--text-base); }
 </style>

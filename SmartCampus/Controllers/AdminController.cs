@@ -9,19 +9,36 @@ public class AdminController(AdminService admin) : Controller
         (HttpContext.Session.GetString("Roles") ?? "").Contains("Admin");
 
     // GET /Admin
-    public async Task<IActionResult> Index(int pageNumber = 1)
+    public async Task<IActionResult> Index(int pageNumber = 1, string? searchString = null, string? riskFilter = null)
     {
         if (!IsAdmin()) return RedirectToAction("Login", "Account");
         var reportList = await admin.GetNoShowReportAsync();
-        var report = SmartCampus.Models.PaginatedList<SmartCampus.Models.NoShowReportVm>.Create(reportList, pageNumber, 10);
+        
+        IEnumerable<SmartCampus.Models.NoShowReportVm> filteredList = reportList;
+
+        if (!string.IsNullOrEmpty(searchString))
+        {
+            filteredList = filteredList.Where(r => r.FullName.Contains(searchString, StringComparison.OrdinalIgnoreCase));
+        }
+
+        if (!string.IsNullOrEmpty(riskFilter))
+        {
+            filteredList = filteredList.Where(r => r.RiskLabel.Equals(riskFilter, StringComparison.OrdinalIgnoreCase));
+        }
+
+        var report = SmartCampus.Models.PaginatedList<SmartCampus.Models.NoShowReportVm>.Create(filteredList, pageNumber, 10);
+        
+        ViewBag.SearchString = searchString;
+        ViewBag.RiskFilter = riskFilter;
         return View(report);
     }
 
     // GET /Admin/Facilities
-    public async Task<IActionResult> Facilities(int pageNumber = 1)
+    public async Task<IActionResult> Facilities(int pageNumber = 1, string? searchString = null)
     {
         if (!IsAdmin()) return RedirectToAction("Login", "Account");
-        var list = await admin.GetAllFacilitiesAsync(pageNumber, 10);
+        var list = await admin.GetAllFacilitiesAsync(pageNumber, 10, searchString);
+        ViewBag.SearchString = searchString;
         return View(list);
     }
 
@@ -35,10 +52,12 @@ public class AdminController(AdminService admin) : Controller
     }
 
     // GET /Admin/Users
-    public async Task<IActionResult> Users(int pageNumber = 1)
+    public async Task<IActionResult> Users(int pageNumber = 1, string? searchString = null, string? roleFilter = null)
     {
         if (!IsAdmin()) return RedirectToAction("Login", "Account");
-        var list = await admin.GetAllUsersWithRolesAsync(pageNumber, 10);
+        var list = await admin.GetAllUsersWithRolesAsync(pageNumber, 10, searchString, roleFilter);
+        ViewBag.SearchString = searchString;
+        ViewBag.RoleFilter = roleFilter;
         return View(list);
     }
 

@@ -46,11 +46,7 @@ public class AppDbContext : DbContext
         mb.Entity<OccupancyLog>().HasKey(o => o.LogID);
         mb.Entity<Reservation>().HasKey(r => r.ReservationID);
 
-        // trg_BlockSuspendedUser bir INSTEAD OF INSERT trigger.
-        // SQL Server, INSTEAD OF trigger olan tablolarda EF Core'un
-        // kullandığı "OUTPUT INSERTED.x" sorgusuna izin vermiyor.
-        // UseSqlOutputClause(false) → EF Core SCOPE_IDENTITY() kullanır.
-        mb.Entity<Reservation>().ToTable(tb => tb.UseSqlOutputClause(false));
+        mb.Entity<Reservation>().ToTable("Reservations");
         mb.Entity<ReservationAuditLog>().HasKey(a => a.AuditID);
         mb.Entity<UserPenalty>().HasKey(p => p.PenaltyID);
 

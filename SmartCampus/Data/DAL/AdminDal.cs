@@ -17,12 +17,24 @@ public class AdminDal(AppDbContext db)
         await db.Database.ExecuteSqlInterpolatedAsync($"DELETE FROM Facilities WHERE FacilityID = {id}");
     }
 
-    public async Task<PaginatedList<UserRoleVm>> GetAllUsersWithRolesAsync(int pageIndex, int pageSize)
+    public async Task<PaginatedList<UserRoleVm>> GetAllUsersWithRolesAsync(int pageIndex, int pageSize, string? searchString, string? roleFilter)
     {
         // Get all users and their single assigned role. (System assumes 1 role per user).
         var query = db.Users
             .Include(u => u.UserRoles).ThenInclude(ur => ur.Role)
-            .OrderBy(u => u.FirstName)
+            .AsQueryable();
+
+        if (!string.IsNullOrEmpty(searchString))
+        {
+            query = query.Where(u => u.FirstName.Contains(searchString) || u.LastName.Contains(searchString) || u.Email.Contains(searchString));
+        }
+
+        if (!string.IsNullOrEmpty(roleFilter))
+        {
+            query = query.Where(u => u.UserRoles.Any(ur => ur.Role.RoleName == roleFilter));
+        }
+
+        var projectedQuery = query.OrderBy(u => u.FirstName)
             .Select(u => new UserRoleVm
             {
                 UserID = u.UserID,
@@ -31,7 +43,7 @@ public class AdminDal(AppDbContext db)
                 RoleName = u.UserRoles.FirstOrDefault()!.Role.RoleName
             });
             
-        return await PaginatedList<UserRoleVm>.CreateAsync(query, pageIndex, pageSize);
+        return await PaginatedList<UserRoleVm>.CreateAsync(projectedQuery, pageIndex, pageSize);
     }
 
     public async Task UpdateUserRoleAsync(int userId, string newRoleName)

@@ -6,6 +6,23 @@
     <span class="updated-at">@DateTime.Today.ToString("d MMMM yyyy", new System.Globalization.CultureInfo("tr-TR"))</span>
 </div>
 
+<div class="filter-wrap" style="margin-bottom: 20px;">
+    <form method="get" asp-action="Index" class="filter-form" style="display: flex; gap: 10px; align-items: center;">
+        <input type="text" name="searchString" placeholder="Mekan veya Organizatör ara..." value="@ViewBag.SearchString" class="form-control" style="max-width: 300px;" />
+        
+        <select name="statusFilter" class="form-select" style="max-width: 200px;">
+            @if(string.IsNullOrEmpty(ViewBag.StatusFilter)) { <option value="" selected>Tüm Durumlar</option> } else { <option value="">Tüm Durumlar</option> }
+            @if(ViewBag.StatusFilter == "Pending") { <option value="Pending" selected>Bekliyor</option> } else { <option value="Pending">Bekliyor</option> }
+            @if(ViewBag.StatusFilter == "Approved") { <option value="Approved" selected>Onaylandı</option> } else { <option value="Approved">Onaylandı</option> }
+            @if(ViewBag.StatusFilter == "Cancelled") { <option value="Cancelled" selected>İptal Edildi</option> } else { <option value="Cancelled">İptal Edildi</option> }
+            @if(ViewBag.StatusFilter == "Completed") { <option value="Completed" selected>Tamamlandı</option> } else { <option value="Completed">Tamamlandı</option> }
+        </select>
+        
+        <button type="submit" class="btn btn-primary">Filtrele</button>
+        <a asp-action="Index" class="btn btn-secondary">Temizle</a>
+    </form>
+</div>
+
 @if (!Model.Any())
 {
     <div class="empty-state">Bugün için henüz rezervasyon yok.</div>
@@ -65,14 +82,14 @@ else
     <div class="pagination-container" style="margin-top: 20px; text-align: center;">
         @if (Model.HasPreviousPage)
         {
-            <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-secondary">Önceki</a>
+            <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" asp-route-searchString="@ViewBag.SearchString" asp-route-statusFilter="@ViewBag.StatusFilter" class="btn btn-secondary">Önceki</a>
         }
         
         <span style="margin: 0 15px;">Sayfa @Model.PageIndex / @Model.TotalPages</span>
         
         @if (Model.HasNextPage)
         {
-            <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-primary">Sonraki</a>
+            <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" asp-route-searchString="@ViewBag.SearchString" asp-route-statusFilter="@ViewBag.StatusFilter" class="btn btn-primary">Sonraki</a>
         }
     </div>
 }

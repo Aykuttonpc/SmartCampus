@@ -5,6 +5,14 @@
     <h1>🏢 Mekan Yönetimi</h1>
 </div>
 
+<div class="filter-wrap" style="margin-bottom: 20px;">
+    <form method="get" asp-action="Facilities" class="filter-form" style="display: flex; gap: 10px; align-items: center;">
+        <input type="text" name="searchString" placeholder="Mekan adı ara..." value="@ViewBag.SearchString" class="form-control" style="max-width: 300px;" />
+        <button type="submit" class="btn btn-primary">Filtrele</button>
+        <a asp-action="Facilities" class="btn btn-secondary">Temizle</a>
+    </form>
+</div>
+
 <div class="table-wrap">
     <table class="data-table">
         <thead>
@@ -39,13 +47,13 @@
 <div class="pagination-container" style="margin-top: 20px; text-align: center;">
     @if (Model.HasPreviousPage)
     {
-        <a asp-action="Facilities" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-secondary">Önceki</a>
+        <a asp-action="Facilities" asp-route-pageNumber="@(Model.PageIndex - 1)" asp-route-searchString="@ViewBag.SearchString" class="btn btn-secondary">Önceki</a>
     }
     
     <span style="margin: 0 15px;">Sayfa @Model.PageIndex / @Model.TotalPages</span>
     
     @if (Model.HasNextPage)
     {
-        <a asp-action="Facilities" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-primary">Sonraki</a>
+        <a asp-action="Facilities" asp-route-pageNumber="@(Model.PageIndex + 1)" asp-route-searchString="@ViewBag.SearchString" class="btn btn-primary">Sonraki</a>
     }
 </div>
